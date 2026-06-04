@@ -1,0 +1,583 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Refuge du Nid d'Aigle — Wireframe mid-fi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #f3f2ee;
+    --paper: #ffffff;
+    --ink: #2a2a28;
+    --muted: #8a887f;
+    --line: #d6d3ca;
+    --line-strong: #b9b6ac;
+    --fill: #e6e4dc;       /* body-text placeholder bars */
+    --fill-soft: #eceae3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #e7e5df; color: var(--ink); font-family: 'JetBrains Mono', monospace; }
+  body { min-height: 100vh; }
+
+  .meta {
+    min-height: 100vh;
+    padding: 26px 24px 70px;
+    display: flex; flex-direction: column; align-items: center; gap: 16px;
+  }
+  .meta-head {
+    width: 100%; max-width: 1320px;
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+    font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .meta-head .title {
+    font-family: 'Instrument Serif', serif; font-style: italic; font-size: 24px;
+    text-transform: none; letter-spacing: 0; color: var(--ink);
+  }
+  .meta-head .title span {
+    font-family: 'JetBrains Mono', monospace; font-style: normal; font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-left: 10px;
+  }
+  .nav-tabs { display: flex; gap: 3px; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 4px; }
+  .nav-tabs button {
+    background: transparent; border: none; color: var(--ink);
+    padding: 8px 14px; border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;
+  }
+  .nav-tabs button.active { background: var(--ink); color: var(--paper); }
+
+  .device-shell {
+    background: var(--paper);
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 24px 50px -30px rgba(0,0,0,0.22);
+    width: 1280px; height: 820px;
+  }
+  .page-frame {
+    width: 100%; height: 100%;
+    overflow-y: auto; overflow-x: hidden;
+    background: var(--bg); position: relative; scroll-behavior: smooth;
+  }
+  .page-frame::-webkit-scrollbar { width: 8px; }
+  .page-frame::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 4px; }
+
+  /* ---- primitives ---- */
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .serif { font-family: 'Instrument Serif', serif; font-weight: 400; letter-spacing: -0.01em; line-height: 1.04; color: var(--ink); }
+  .serif em { font-style: italic; }
+
+  .ph {
+    border: 1px solid var(--line-strong);
+    border-radius: 4px;
+    background:
+      repeating-linear-gradient(135deg, transparent 0 13px, rgba(42,42,40,0.045) 13px 14px),
+      var(--fill-soft);
+    position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .ph.dark {
+    background:
+      repeating-linear-gradient(135deg, transparent 0 13px, rgba(255,255,255,0.05) 13px 14px),
+      #4a4843;
+    border-color: #3a3835;
+  }
+  .ph .cap {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+    background: rgba(255,255,255,0.92); border: 1px solid var(--line); border-radius: 2px;
+    padding: 4px 10px; color: var(--ink); position: relative; z-index: 2;
+  }
+  .ph.dark .cap { background: rgba(30,30,28,0.7); border-color: #555; color: #f0efe9; }
+
+  .bar { background: var(--fill); border-radius: 2px; height: 9px; }
+  .bar.soft { background: var(--fill-soft); }
+
+  .chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--line-strong); border-radius: 999px; padding: 6px 13px;
+    background: var(--paper); font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink);
+  }
+  .btn {
+    border: 1px solid var(--ink); background: var(--paper); color: var(--ink);
+    padding: 11px 20px; border-radius: 999px; cursor: pointer;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .btn.primary { background: var(--ink); color: var(--paper); }
+
+  .field { border: 1px solid var(--line-strong); border-radius: 3px; background: #faf9f6; }
+  .divider { height: 1px; background: var(--line); }
+  .divider.strong { height: 1px; background: var(--line-strong); }
+
+  #app-root { min-height: 100vh; }
+</style>
+</head>
+<body>
+
+<div id="app-root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel">
+const { useState, useRef, useEffect } = React;
+
+// ===== body-text placeholder (the "sans texte" part) =====
+function Lines({ count = 3, widths = ['100%','94%','78%'], gap = 9, h = 8 }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap }}>
+      {Array.from({ length: count }).map((_, i) => (
+        <div key={i} className="bar" style={{ width: widths[i % widths.length], height: h }} />
+      ))}
+    </div>
+  );
+}
+
+function ImgBox({ label, height, dark = false, style = {} }) {
+  return (
+    <div className={"ph" + (dark ? " dark" : "")} style={{ height, ...style }}>
+      <span className="cap">{label}</span>
+    </div>
+  );
+}
+
+// ===== Nav =====
+function NavPill({ current, onNav }) {
+  const items = [
+    { id: 'reservation', label: 'Réservation' },
+    { id: 'tarifs', label: 'Tarifs' },
+    { id: 'about', label: 'À propos' },
+  ];
+  return (
+    <header style={{ position: 'absolute', top: 22, left: 0, right: 0, zIndex: 30, display: 'flex', justifyContent: 'center' }}>
+      <nav style={{
+        background: 'rgba(255,255,255,0.96)', backdropFilter: 'blur(8px)',
+        border: '1px solid var(--line-strong)', borderRadius: 999,
+        padding: '8px 8px 8px 22px', display: 'flex', alignItems: 'center', gap: 24,
+        boxShadow: '0 6px 20px -10px rgba(0,0,0,0.18)',
+      }}>
+        <a href="#" onClick={(e) => { e.preventDefault(); onNav('home'); }} style={{
+          display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: 'var(--ink)',
+          fontFamily: 'Instrument Serif, serif', fontStyle: 'italic', fontSize: 19,
+        }}>
+          <span style={{ width: 14, height: 14, border: '1.5px solid var(--ink)', borderRadius: 99, display: 'inline-block' }} />
+          Nid d'Aigle
+        </a>
+        {items.map(it => (
+          <a key={it.id} href="#" onClick={(e) => { e.preventDefault(); onNav(it.id); }} style={{
+            textDecoration: 'none', color: current === it.id ? 'var(--ink)' : 'var(--muted)',
+            fontFamily: 'JetBrains Mono, monospace', fontSize: 11, letterSpacing: '0.04em',
+          }}>{it.label}</a>
+        ))}
+        <button className="btn primary" onClick={() => onNav('contact')}>Contact</button>
+      </nav>
+    </header>
+  );
+}
+
+function Footer({ onNav }) {
+  return (
+    <footer style={{ borderTop: '1px solid var(--line-strong)', padding: '46px 8% 30px', background: '#efede6', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 30 }}>
+      <div>
+        <div className="serif" style={{ fontStyle: 'italic', fontSize: 22, marginBottom: 8 }}>Refuge du Nid d'Aigle</div>
+        <div className="eyebrow">2 372 m · Massif du Mont-Blanc</div>
+      </div>
+      {[
+        { t: 'Navigation', items: ['Accueil','Réservation','Tarifs','À propos','Contact'] },
+        { t: 'Contact', n: 3 },
+        { t: 'Saison', n: 2 },
+      ].map((c, ci) => (
+        <div key={ci}>
+          <div className="eyebrow" style={{ marginBottom: 14 }}>{c.t}</div>
+          {c.items ? (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {c.items.map(it => (
+                <a key={it} href="#" onClick={(e) => { e.preventDefault(); onNav({Accueil:'home',Réservation:'reservation',Tarifs:'tarifs','À propos':'about',Contact:'contact'}[it]); }} style={{ color: 'var(--ink)', textDecoration: 'none', fontSize: 12 }}>{it}</a>
+              ))}
+            </div>
+          ) : <Lines count={c.n} widths={['80%','60%','70%']} h={6} />}
+        </div>
+      ))}
+      <div style={{ gridColumn: '1 / -1', borderTop: '1px solid var(--line)', paddingTop: 18, marginTop: 10 }} className="eyebrow">© 2026 — Wireframe mid-fi · 45.892° N · 6.794° E</div>
+    </footer>
+  );
+}
+
+// ===== Pages =====
+function PageHome({ onNav }) {
+  return (
+    <div>
+      {/* Hero */}
+      <section style={{ position: 'relative', height: 640 }}>
+        <ImgBox label="Photo" height="100%" dark style={{ position: 'absolute', inset: 0, borderRadius: 0, border: 'none', borderBottom: '1px solid var(--line-strong)' }} />
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '0 24px', zIndex: 2 }}>
+          <div className="chip" style={{ marginBottom: 22, background: 'rgba(255,255,255,0.9)' }}>Étape · 2 372 m · Voie normale du Mont-Blanc</div>
+          <h1 className="serif" style={{ fontSize: 86, margin: 0, maxWidth: 1000, color: '#f4f3ef' }}>
+            Une nuit suspendue<br /><em>au seuil des glaciers.</em>
+          </h1>
+          <div style={{ width: 420, marginTop: 26 }}><Lines count={2} widths={['100%','70%']} /></div>
+          <div style={{ display: 'flex', gap: 12, marginTop: 28 }}>
+            <button className="btn primary" onClick={() => onNav('reservation')}>Réserver une nuitée</button>
+            <button className="btn" style={{ background: 'rgba(255,255,255,0.9)' }} onClick={() => onNav('about')}>Découvrir le refuge</button>
+          </div>
+        </div>
+        {/* stats strip */}
+        <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '0 36px 26px', display: 'flex', justifyContent: 'space-between', zIndex: 2 }}>
+          {[['Altitude','2 372 m'],['Couchages','28'],['Saison','Juin → Sept.'],['Accès','TMB · Sentier']].map(([k,v]) => (
+            <div key={k} style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+              <span className="eyebrow" style={{ color: '#d9d7cf' }}>{k}</span>
+              <span className="serif" style={{ fontStyle: 'italic', fontSize: 22, color: '#f4f3ef' }}>{v}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Intro */}
+      <section style={{ padding: '100px 8%', display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 80, alignItems: 'start' }}>
+        <div>
+          <div className="eyebrow">01 / Le refuge</div>
+          <h2 className="serif" style={{ fontSize: 54, margin: '14px 0 0' }}>Un point d'étape, <em>pas une destination</em>.</h2>
+        </div>
+        <div style={{ maxWidth: 620, display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <Lines count={4} />
+          <Lines count={3} widths={['100%','88%','64%']} />
+          <div style={{ marginTop: 8 }}><a href="#" onClick={(e) => { e.preventDefault(); onNav('about'); }} className="eyebrow" style={{ color: 'var(--ink)', textDecoration: 'none', borderBottom: '1px solid var(--ink)', paddingBottom: 3 }}>Lire l'histoire →</a></div>
+        </div>
+      </section>
+
+      {/* Triptych */}
+      <section style={{ padding: '0 8% 100px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr', gap: 12, height: 440 }}>
+          <ImgBox label="Vue extérieure · façade" height="100%" />
+          <div style={{ display: 'grid', gridTemplateRows: '1fr 1fr', gap: 12 }}>
+            <ImgBox label="Salle commune" height="100%" />
+            <ImgBox label="Dortoir" height="100%" />
+          </div>
+          <ImgBox label="Glacier au crépuscule" height="100%" dark />
+        </div>
+      </section>
+
+      {/* Cards */}
+      <section style={{ padding: '0 8% 120px' }}>
+        <div style={{ marginBottom: 28 }}>
+          <div className="eyebrow">02 / Préparer votre venue</div>
+          <h2 className="serif" style={{ fontSize: 46, margin: '10px 0 0' }}>Trois choses à savoir avant de monter.</h2>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+          {[['01','Réservation','reservation'],['02','Tarifs','tarifs'],['03','Accès','contact']].map(([n,t,target]) => (
+            <article key={n} onClick={() => onNav(target)} style={{ background: 'var(--paper)', border: '1px solid var(--line-strong)', borderRadius: 4, padding: 28, cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: 14, minHeight: 220 }}>
+              <span className="eyebrow">{n}</span>
+              <h3 className="serif" style={{ fontSize: 30, margin: 0 }}>{t}</h3>
+              <Lines count={3} widths={['100%','90%','55%']} h={7} />
+              <span className="eyebrow" style={{ marginTop: 'auto' }}>En savoir plus →</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <Footer onNav={onNav} />
+    </div>
+  );
+}
+
+function PageReservation({ onNav }) {
+  const fields = [
+    ['Date d\'arrivée', 1, false], ['Nombre de nuits', 1, false],
+    ['Nombre de personnes', 1, false], ['Formule', 1, false],
+    ['Nom et prénom', 2, false], ['Email', 1, false],
+    ['Téléphone', 1, false], ['Message (optionnel)', 2, true],
+  ];
+  return (
+    <div>
+      <section style={{ position: 'relative', minHeight: 340, paddingTop: 110, paddingBottom: 40 }}>
+        <ImgBox label="Photo · salle commune" height="100%" dark style={{ position: 'absolute', inset: 0, borderRadius: 0, border: 'none' }} />
+        <div style={{ position: 'relative', padding: '0 8%', zIndex: 2 }}>
+          <div className="eyebrow" style={{ color: '#d9d7cf' }}>02 / Réservation</div>
+          <h1 className="serif" style={{ fontSize: 72, margin: '12px 0 0', color: '#f4f3ef' }}>Réserver <em>une nuitée</em>.</h1>
+        </div>
+      </section>
+
+      <section style={{ padding: '70px 8% 110px', display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 80, alignItems: 'start' }}>
+        {/* form */}
+        <div style={{ background: 'var(--paper)', border: '1px solid var(--line-strong)', borderRadius: 4, padding: 40 }}>
+          {/* stepper */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 32 }}>
+            {[['1','Séjour'],['2','Coordonnées'],['3','Confirmation']].map(([n,l], i) => (
+              <React.Fragment key={n}>
+                <div style={{ width: 28, height: 28, borderRadius: 99, border: '1px solid ' + (i===0?'var(--ink)':'var(--line-strong)'), background: i===0?'var(--ink)':'transparent', color: i===0?'#fff':'var(--muted)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12 }}>{n}</div>
+                <span className="eyebrow" style={{ color: i===0?'var(--ink)':'var(--muted)' }}>{l}</span>
+                {i < 2 && <div style={{ flex: 1, height: 1, background: 'var(--line)' }} />}
+              </React.Fragment>
+            ))}
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 22 }}>
+            {fields.map(([label, span, tall]) => (
+              <div key={label} style={{ gridColumn: `span ${span}` }}>
+                <div className="eyebrow" style={{ marginBottom: 7 }}>{label}</div>
+                <div className="field" style={{ height: tall ? 92 : 44 }} />
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: 32, paddingTop: 22, borderTop: '1px solid var(--line)', display: 'flex', justifyContent: 'flex-end' }}>
+            <button className="btn primary">Continuer →</button>
+          </div>
+        </div>
+        {/* sidebar */}
+        <aside style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
+          <div>
+            <div className="eyebrow">À savoir</div>
+            <h3 className="serif" style={{ fontSize: 30, margin: '10px 0 16px' }}>Le refuge <em>en pratique</em>.</h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              {['Capacité','Repas','Couverture','Eau','Annulation'].map(k => (
+                <div key={k} style={{ display: 'grid', gridTemplateColumns: '110px 1fr', gap: 16, paddingBottom: 14, borderBottom: '1px solid var(--line)' }}>
+                  <span className="eyebrow">{k}</span>
+                  <Lines count={1} widths={['100%']} h={7} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div style={{ background: '#e9e7e0', borderRadius: 4, padding: 22 }}>
+            <div className="eyebrow">Conditions</div>
+            <div style={{ marginTop: 12 }}><Lines count={3} widths={['100%','94%','70%']} h={7} /></div>
+          </div>
+        </aside>
+      </section>
+
+      <Footer onNav={onNav} />
+    </div>
+  );
+}
+
+function PageTarifs({ onNav }) {
+  const rows = ['Nuitée seule','Demi-pension','Pension complète','Repas seul','Petit-déjeuner','Pique-nique'];
+  return (
+    <div>
+      <section style={{ padding: '130px 8% 50px', borderBottom: '1px solid var(--line-strong)' }}>
+        <div className="eyebrow">03 / Tarifs · Saison 2026</div>
+        <h1 className="serif" style={{ fontSize: 84, margin: '14px 0 0' }}>Tarifs <em>simples</em>,<br />sans suppléments cachés.</h1>
+        <div style={{ marginTop: 24, maxWidth: 540 }}><Lines count={2} widths={['100%','72%']} /></div>
+      </section>
+
+      <section style={{ padding: '70px 8% 110px' }}>
+        <div style={{ border: '1px solid var(--line-strong)', borderRadius: 4, background: 'var(--paper)', overflow: 'hidden' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', background: '#ecebe4', borderBottom: '1px solid var(--line-strong)' }}>
+            {['Prestation','Adulte','Enfant -12 ans','FFCAM'].map((h, i) => (
+              <div key={h} className="eyebrow" style={{ padding: '18px 22px', textAlign: i===0?'left':'right' }}>{h}</div>
+            ))}
+          </div>
+          {rows.map((r, i) => (
+            <div key={r} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', borderBottom: i < rows.length-1 ? '1px solid var(--line)' : 'none' }}>
+              <div style={{ padding: '20px 22px' }}>
+                <div className="serif" style={{ fontSize: 22 }}>{r}</div>
+                <div style={{ marginTop: 8 }}><div className="bar soft" style={{ width: 200, height: 6 }} /></div>
+              </div>
+              {[0,1,2].map(j => (
+                <div key={j} style={{ padding: '20px 22px', display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+                  <div className="bar" style={{ width: 46, height: 8 }} />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        {/* notes */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, marginTop: 50 }}>
+          {[['A','Groupes (8+)'],['B','Enfants -5 ans'],['C','Membres FFCAM']].map(([n,t]) => (
+            <div key={n} style={{ borderTop: '1px solid var(--line-strong)', paddingTop: 18 }}>
+              <div className="eyebrow">Note · {n}</div>
+              <h4 className="serif" style={{ fontSize: 22, margin: '8px 0 10px' }}>{t}</h4>
+              <Lines count={3} widths={['100%','90%','60%']} h={7} />
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div style={{ marginTop: 70, padding: '48px 50px', background: 'var(--ink)', borderRadius: 4, display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24 }}>
+          <div>
+            <h3 className="serif" style={{ fontSize: 38, margin: 0, color: '#f4f3ef' }}>Prêt à réserver ?</h3>
+            <div style={{ marginTop: 12, width: 280 }}><Lines count={1} widths={['100%']} h={7} /></div>
+          </div>
+          <button className="btn" style={{ background: '#f4f3ef', borderColor: '#f4f3ef' }} onClick={() => onNav('reservation')}>Réserver une nuitée →</button>
+        </div>
+      </section>
+
+      <Footer onNav={onNav} />
+    </div>
+  );
+}
+
+function PageContact({ onNav }) {
+  return (
+    <div>
+      <section style={{ padding: '130px 8% 40px' }}>
+        <div className="eyebrow">04 / Contact & accès</div>
+        <h1 className="serif" style={{ fontSize: 84, margin: '14px 0 0' }}>Comment <em>nous trouver</em>.</h1>
+      </section>
+
+      {/* map */}
+      <section style={{ padding: '0 8%' }}>
+        <div style={{ height: 460, borderRadius: 4, overflow: 'hidden', border: '1px solid var(--line-strong)', position: 'relative', background: 'repeating-linear-gradient(45deg, transparent 0 20px, rgba(0,0,0,0.035) 20px 21px), #e9e8e1' }}>
+          <svg width="100%" height="100%" viewBox="0 0 1000 460" preserveAspectRatio="none" style={{ position: 'absolute', inset: 0 }}>
+            {[...Array(7)].map((_, i) => { const r = 50 + i*48; return <ellipse key={i} cx="600" cy="210" rx={r*1.2} ry={r*0.7} fill="none" stroke="#a8a59b" strokeWidth="1" />; })}
+            <path d="M 0 380 Q 200 360 350 400 T 700 420 T 1000 460" fill="none" stroke="#9fb0bd" strokeWidth="3" />
+            <path d="M 100 440 Q 300 400 480 360 T 600 210" fill="none" stroke="#8a887f" strokeWidth="1.5" strokeDasharray="5 5" />
+          </svg>
+          <div style={{ position: 'absolute', top: '40%', left: '60%', transform: 'translate(-50%,-100%)' }}>
+            <div style={{ background: 'var(--paper)', border: '1px solid var(--line-strong)', borderRadius: 4, padding: '9px 13px', whiteSpace: 'nowrap', boxShadow: '0 8px 22px -10px rgba(0,0,0,0.3)' }}>
+              <span className="serif" style={{ fontStyle: 'italic', fontSize: 16 }}>Refuge du Nid d'Aigle</span>
+            </div>
+            <div style={{ width: 1, height: 16, background: 'var(--ink)', margin: '0 auto' }} />
+            <div style={{ width: 12, height: 12, borderRadius: 99, background: 'var(--ink)', margin: '0 auto' }} />
+          </div>
+          <div className="chip" style={{ position: 'absolute', bottom: 16, left: 16 }}>Carte indicative · Aperçu</div>
+        </div>
+      </section>
+
+      {/* access + coords */}
+      <section style={{ padding: '70px 8% 110px', display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 70 }}>
+        <div>
+          <div className="eyebrow">Accès</div>
+          <h2 className="serif" style={{ fontSize: 48, margin: '12px 0 30px' }}>Deux <em>chemins</em> jusqu'au refuge.</h2>
+          {[['01','Tramway du Mont-Blanc','Recommandé'],['02','Randonnée — sentier du Mont Lachat','Saison été']].map(([n,t,tag]) => (
+            <div key={n} style={{ display: 'grid', gridTemplateColumns: '60px 1fr auto', gap: 20, padding: '26px 0', borderTop: '1px solid var(--line-strong)', alignItems: 'start' }}>
+              <span className="eyebrow">{n}</span>
+              <div>
+                <div className="serif" style={{ fontSize: 26 }}>{t}</div>
+                <div style={{ margin: '12px 0' }}><Lines count={3} widths={['100%','92%','64%']} h={7} /></div>
+              </div>
+              <span className="chip">{tag}</span>
+            </div>
+          ))}
+          <div style={{ borderTop: '1px solid var(--line-strong)' }} />
+        </div>
+        <aside>
+          <div className="eyebrow">Coordonnées</div>
+          <div style={{ marginTop: 14, display: 'flex', flexDirection: 'column', gap: 22 }}>
+            {['Téléphone','Email','Adresse','Coordonnées GPS'].map(k => (
+              <div key={k} style={{ borderBottom: '1px solid var(--line)', paddingBottom: 16, display: 'flex', flexDirection: 'column', gap: 8 }}>
+                <span className="eyebrow">{k}</span>
+                <div className="bar" style={{ width: '70%', height: 11 }} />
+              </div>
+            ))}
+          </div>
+          <button className="btn primary" style={{ marginTop: 24 }} onClick={() => onNav('reservation')}>Réserver →</button>
+        </aside>
+      </section>
+
+      <Footer onNav={onNav} />
+    </div>
+  );
+}
+
+function PageAbout({ onNav }) {
+  return (
+    <div>
+      <section style={{ padding: '130px 8% 30px' }}>
+        <div className="eyebrow">05 / À propos</div>
+        <h1 className="serif" style={{ fontSize: 92, margin: '14px 0 0' }}>Cent ans <em>à veiller</em><br />sur les passages.</h1>
+      </section>
+
+      <section style={{ padding: '30px 8% 0' }}>
+        <ImgBox label="Photo d'archive · construction, 1923" height={440} />
+      </section>
+
+      <section style={{ padding: '90px 8%', display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: 80, alignItems: 'start' }}>
+        <div>
+          <div className="eyebrow">Histoire</div>
+          <h2 className="serif" style={{ fontSize: 42, margin: '12px 0 0' }}><em>1923 — 2026</em></h2>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
+          <Lines count={4} />
+          <Lines count={4} widths={['100%','96%','90%','68%']} />
+        </div>
+      </section>
+
+      {/* timeline */}
+      <section style={{ padding: '0 8% 90px' }}>
+        <div style={{ borderTop: '1px solid var(--line-strong)' }}>
+          {['1923','1948','1962','1989','2018','2026'].map(y => (
+            <div key={y} style={{ display: 'grid', gridTemplateColumns: '180px 1fr', gap: 20, padding: '22px 0', borderBottom: '1px solid var(--line)' }}>
+              <span className="serif" style={{ fontStyle: 'italic', fontSize: 32, color: 'var(--muted)' }}>{y}</span>
+              <div style={{ alignSelf: 'center' }}><Lines count={1} widths={['78%']} h={7} /></div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* geography */}
+      <section style={{ padding: '90px 8%', background: '#ecebe4', display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 60, alignItems: 'center' }}>
+        <div>
+          <div className="eyebrow">Situation</div>
+          <h2 className="serif" style={{ fontSize: 54, margin: '14px 0 22px' }}>Sur l'arête du Mont Lachat, <em>face au glacier</em>.</h2>
+          <div style={{ maxWidth: 540 }}><Lines count={3} /></div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20, marginTop: 36, maxWidth: 460 }}>
+            {[['2 372 m','Altitude'],['28','Couchages'],['97 j','Saison annuelle'],['~2 800','Nuitées / an']].map(([v,k]) => (
+              <div key={k} style={{ borderTop: '1px solid var(--line-strong)', paddingTop: 12 }}>
+                <div className="serif" style={{ fontStyle: 'italic', fontSize: 32 }}>{v}</div>
+                <div className="eyebrow">{k}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <ImgBox label="Plan altitude · Saint-Gervais → Mont-Blanc" height={380} />
+      </section>
+
+      {/* role */}
+      <section style={{ padding: '110px 8% 130px' }}>
+        <div className="eyebrow">Rôle</div>
+        <h2 className="serif" style={{ fontSize: 54, margin: '14px 0 32px', maxWidth: 900 }}>Une étape, pas une fin. <em>Un seuil entre deux mondes.</em></h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 30 }}>
+          {[['Vers le bas','Saint-Gervais'],['Vers le haut','Refuge du Goûter'],['Au-delà','Sommet du Mont-Blanc']].map(([k,v]) => (
+            <div key={k} style={{ borderTop: '1px solid var(--line-strong)', paddingTop: 18 }}>
+              <div className="eyebrow">{k}</div>
+              <h3 className="serif" style={{ fontSize: 30, margin: '8px 0 10px' }}>{v}</h3>
+              <Lines count={2} widths={['100%','64%']} h={7} />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <Footer onNav={onNav} />
+    </div>
+  );
+}
+
+// ===== App =====
+function App() {
+  const [page, setPage] = useState('home');
+  const frameRef = useRef(null);
+  useEffect(() => { if (frameRef.current) frameRef.current.scrollTop = 0; }, [page]);
+
+  const labels = { home: 'Accueil', reservation: 'Réservation', tarifs: 'Tarifs', contact: 'Contact', about: 'À propos' };
+  const PAGES = { home: PageHome, reservation: PageReservation, tarifs: PageTarifs, contact: PageContact, about: PageAbout };
+  const Current = PAGES[page];
+
+  return (
+    <div className="meta">
+      <div className="meta-head">
+        <div className="title">Refuge du Nid d'Aigle <span>Wireframe mid-fi</span></div>
+
+      </div>
+
+      <div className="device-shell">
+        <div className="page-frame" ref={frameRef} data-screen-label={`${labels[page]} · mid-fi`}>
+          <NavPill current={page} onNav={setPage} />
+          <Current onNav={setPage} />
+        </div>
+      </div>
+
+      <div style={{ maxWidth: 1280, width: '100%', display: 'flex', justifyContent: 'space-between', marginTop: 8 }} className="eyebrow">
+        <span>Titres réels · texte en placeholders</span>
+        <span>5 pages cliquables · {labels[page]}</span>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('app-root')).render(<App />);
+</script>
+</body>
+</html>
