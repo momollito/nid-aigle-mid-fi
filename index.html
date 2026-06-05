@@ -557,9 +557,23 @@ function App() {
         </div>
       </div>
 
-      <div style={{ maxWidth: 1280, width: '100%', display: 'flex', justifyContent: 'space-between', marginTop: 8 }} className="eyebrow">
-        <span>Titres réels · texte en placeholders</span>
-        <span>5 pages cliquables · {labels[page]}</span>
+      <div style={{ maxWidth: 1280, width: '100%', marginTop: 20, borderTop: '1px solid var(--line-strong)', paddingTop: 20 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 18 }}>
+          <div className="eyebrow">Document de travail · Wireframe mid-fi</div>
+          <div className="eyebrow" style={{ color: 'var(--ink)' }}>4 pages · <em style={{ fontFamily: 'Instrument Serif, serif', fontStyle: 'italic', fontSize: 13, textTransform: 'none', letterSpacing: 0 }}>{labels[page]}</em> actif</div>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 28 }}>
+          {[
+            ['Objectif', 'Valider l\'organisation des pages, la hiérarchie du contenu et les parcours de navigation — avant toute décision visuelle définitive.'],
+            ['Ce qui est indicatif', 'Textes, couleurs, images et proportions. Les barres grises représentent des blocs de contenu à définir. Rien n\'est figé.'],
+            ['Comment interagir', 'Cliquez les liens et boutons pour passer d\'une page à l\'autre. Toute remarque sur la structure ou la navigation est bienvenue à ce stade.'],
+          ].map(([label, text]) => (
+            <div key={label}>
+              <div className="eyebrow" style={{ marginBottom: 8 }}>{label}</div>
+              <p style={{ margin: 0, fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 12, lineHeight: 1.7, color: 'var(--muted)' }}>{text}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
