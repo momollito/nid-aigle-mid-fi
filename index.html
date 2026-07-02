@@ -182,7 +182,7 @@ function Footer({ onNav }) {
     <footer style={{ borderTop: '1px solid var(--line-strong)', padding: '46px 8% 30px', background: '#efede6', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 30 }}>
       <div>
         <div className="serif" style={{ fontStyle: 'italic', fontSize: 22, marginBottom: 8 }}>Refuge du Nid d'Aigle</div>
-        <div className="eyebrow">2 372 m · Massif du Mont-Blanc</div>
+        <div className="eyebrow">2 412 m · Massif du Mont-Blanc</div>
       </div>
       {[
         { t: 'Navigation', items: ['Accueil','Tarifs & Réservation','À propos','Contact'] },
@@ -200,7 +200,7 @@ function Footer({ onNav }) {
           ) : <Lines count={c.n} widths={['80%','60%','70%']} h={6} />}
         </div>
       ))}
-      <div style={{ gridColumn: '1 / -1', borderTop: '1px solid var(--line)', paddingTop: 18, marginTop: 10 }} className="eyebrow">© 2026 — Wireframe mid-fi · 45.892° N · 6.794° E</div>
+      <div style={{ gridColumn: '1 / -1', borderTop: '1px solid var(--line)', paddingTop: 18, marginTop: 10 }} className="eyebrow">© 2026 — Bak Studio</div>
     </footer>
   );
 }
@@ -217,16 +217,16 @@ function PageHome({ onNav }) {
 
         {/* bottom-left: eyebrow + title + CTA */}
         <div style={{ position: 'absolute', left: 0, bottom: 0, padding: '0 52px 44px', zIndex: 2, maxWidth: 720 }}>
-          <div className="eyebrow" style={{ color: '#b8b5ad', marginBottom: 16 }}>Géré par des passionnés · Depuis 1961</div>
+          <div className="eyebrow" style={{ color: '#b8b5ad', marginBottom: 16 }}>Géré par des passionnés · Depuis 1933</div>
           <h1 className="serif" style={{ fontSize: 76, margin: '0 0 28px', color: '#f4f3ef', lineHeight: 1.0 }}>
-            Une nuit suspendue<br /><em>au seuil des glaciers.</em>
+            Une halte suspendue<br /><em>au seuil des glaciers.</em>
           </h1>
           <button className="btn primary" onClick={() => onNav('tarifs')}>Réserver une nuitée</button>
         </div>
 
         {/* bottom-right: stats */}
         <div style={{ position: 'absolute', right: 0, bottom: 0, padding: '0 52px 44px', zIndex: 2, display: 'flex', flexDirection: 'column', gap: 18, alignItems: 'flex-end' }}>
-          {[['Altitude','2 372 m'],['Couchages','28'],['Saison','Juin → Sept.'],['Accès','TMB · Sentier']].map(([k,v]) => (
+          {[['Altitude','2 412 m'],['Couchages','30'],['Saison','Juin → Sept.'],['Accès','Tramway · Randonnée']].map(([k,v]) => (
             <div key={k} style={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'flex-end' }}>
               <span className="eyebrow" style={{ color: '#8a8780' }}>{k}</span>
               <span className="serif" style={{ fontStyle: 'italic', fontSize: 20, color: '#f4f3ef' }}>{v}</span>
@@ -242,8 +242,7 @@ function PageHome({ onNav }) {
           <h2 className="serif" style={{ fontSize: 54, margin: '14px 0 0' }}>Un point d'étape. <em>Une destination.</em></h2>
         </div>
         <div style={{ maxWidth: 620, display: 'flex', flexDirection: 'column', gap: 20 }}>
-          <Lines count={4} />
-          <Lines count={3} widths={['100%','88%','64%']} />
+          <p style={{ margin: 0, fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 15, lineHeight: 1.75, color: 'var(--ink)' }}>Le Nid d'Aigle est le point de rendez-vous entre deux mondes de la montagne : les randonneurs venus à la journée profiter d'un repas et de la vue sur les glaciers, et les alpinistes qui montent vers le sommet du Mont-Blanc ou en redescendent. À l'aller comme au retour, ce n'est pas qu'un passage — c'est une destination à part entière.</p>
           <div style={{ marginTop: 8 }}><a href="#" onClick={(e) => { e.preventDefault(); onNav('about'); }} className="eyebrow" style={{ color: 'var(--ink)', textDecoration: 'none', borderBottom: '1px solid var(--ink)', paddingBottom: 3 }}>Lire l'histoire →</a></div>
         </div>
       </section>
@@ -284,60 +283,32 @@ function PageHome({ onNav }) {
 }
 
 function PageTarifsReservation({ onNav }) {
-  const rows = ['Nuitée seule','Demi-pension','Pension complète','Repas seul','Petit-déjeuner','Pique-nique'];
+  const cols = ['Prestation','Adulte','Ado · 13-18 ans','Enfant','- de 6 ans'];
+  const rows = [
+    { name: 'Demi-pension', sub: 'Nuitée + dîner + petit-déjeuner', prices: ['80 €*', '72 €', '55 €*', '40 €'] },
+    { name: 'Nuitée simple', sub: 'Couchage seul', prices: ['30 €*', '22 €', '15 €', 'Gratuit'] },
+    { name: 'Pique-nique', sub: 'Tarif unique', prices: ['15 €', '—', '—', '—'] },
+    { name: 'Petit-déjeuner', sub: 'Tarif unique', prices: ['15 €', '—', '—', '—'] },
+  ];
+  const notes = [
+    ['A', 'Nuitée groupe', '+ de 10 personnes', '20 €*'],
+    ['B', 'Nuitée professionnels', 'Guides, AEM, gardiens', '18 €*'],
+    ['C', 'Nuitée groupe scolaire', '', '5 €'],
+  ];
   return (
     <div>
       {/* Header */}
       <section style={{ padding: '130px 8% 50px', borderBottom: '1px solid var(--line-strong)' }}>
         <div className="eyebrow">02 / Tarifs & Réservation · Saison 2026</div>
-        <h1 className="serif" style={{ fontSize: 84, margin: '14px 0 0' }}>Tarifs <em>transparents</em>,<br />réservation directe.</h1>
+        <h1 className="serif" style={{ fontSize: 84, margin: '14px 0 0' }}>Tarifs &amp;<br /><em>réservation</em>.</h1>
         <div style={{ marginTop: 24, maxWidth: 540 }}><Lines count={2} widths={['100%','72%']} /></div>
       </section>
 
-      {/* Grille tarifaire */}
-      <section style={{ padding: '70px 8% 0' }}>
-        <div className="eyebrow" style={{ marginBottom: 28 }}>Grille tarifaire</div>
-        <div style={{ border: '1px solid var(--line-strong)', borderRadius: 4, background: 'var(--paper)', overflow: 'hidden' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', background: '#ecebe4', borderBottom: '1px solid var(--line-strong)' }}>
-            {['Prestation','Adulte','Enfant -12 ans','FFCAM'].map((h, i) => (
-              <div key={h} className="eyebrow" style={{ padding: '18px 22px', textAlign: i===0?'left':'right' }}>{h}</div>
-            ))}
-          </div>
-          {rows.map((r, i) => (
-            <div key={r} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', borderBottom: i < rows.length-1 ? '1px solid var(--line)' : 'none' }}>
-              <div style={{ padding: '20px 22px' }}>
-                <div className="serif" style={{ fontSize: 22 }}>{r}</div>
-                <div style={{ marginTop: 8 }}><div className="bar soft" style={{ width: 200, height: 6 }} /></div>
-              </div>
-              {[0,1,2].map(j => (
-                <div key={j} style={{ padding: '20px 22px', display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
-                  <div className="bar" style={{ width: 46, height: 8 }} />
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-
-        {/* Notes tarifaires */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, marginTop: 50 }}>
-          {[['A','Groupes (8+)'],['B','Enfants -5 ans'],['C','Membres FFCAM']].map(([n,t]) => (
-            <div key={n} style={{ borderTop: '1px solid var(--line-strong)', paddingTop: 18 }}>
-              <div className="eyebrow">Note · {n}</div>
-              <h4 className="serif" style={{ fontSize: 22, margin: '8px 0 10px' }}>{t}</h4>
-              <Lines count={3} widths={['100%','90%','60%']} h={7} />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Séparateur */}
-      <div style={{ margin: '80px 8% 0', height: 1, background: 'var(--line-strong)' }} />
-
       {/* Réservation */}
-      <section style={{ padding: '70px 8% 110px', display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 80, alignItems: 'start' }}>
+      <section style={{ padding: '70px 8% 0', display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 80, alignItems: 'start' }}>
         <div>
           <div className="eyebrow">Réservation en ligne</div>
-          <h2 className="serif" style={{ fontSize: 46, margin: '12px 0 28px' }}>Réserver <em>directement</em>.</h2>
+          <h2 className="serif" style={{ fontSize: 46, margin: '12px 0 28px' }}>Réserver votre <em>nuitée</em>.</h2>
           <div style={{ marginTop: 8, marginBottom: 24 }}><Lines count={2} widths={['100%','80%']} h={7} /></div>
           {/* Bloc embedded booking platform */}
           <div style={{
@@ -355,19 +326,64 @@ function PageTarifsReservation({ onNav }) {
             <div className="eyebrow">À savoir</div>
             <h3 className="serif" style={{ fontSize: 30, margin: '10px 0 16px' }}>Le refuge <em>en pratique</em>.</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-              {['Capacité','Repas','Couverture','Eau','Annulation'].map(k => (
+              {[
+                ['Capacité','30 couchages'],
+                ['Repas','Plat unique, option végétarienne sur demande'],
+                ['Couverture','Fournies — drap de sac obligatoire'],
+                ['Eau','Non potable : prévoir son eau, vente possible'],
+                ['Douche','Pas de douche'],
+                ['Animaux','Non acceptés pour les nuitées'],
+              ].map(([k,v]) => (
                 <div key={k} style={{ display: 'grid', gridTemplateColumns: '110px 1fr', gap: 16, paddingBottom: 14, borderBottom: '1px solid var(--line)' }}>
                   <span className="eyebrow">{k}</span>
-                  <Lines count={1} widths={['100%']} h={7} />
+                  <span style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 14, lineHeight: 1.5, color: 'var(--ink)' }}>{v}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div style={{ background: '#e9e7e0', borderRadius: 4, padding: 22 }}>
-            <div className="eyebrow">Conditions</div>
-            <div style={{ marginTop: 12 }}><Lines count={3} widths={['100%','94%','70%']} h={7} /></div>
-          </div>
         </aside>
+      </section>
+
+      {/* Séparateur */}
+      <div style={{ margin: '80px 8% 0', height: 1, background: 'var(--line-strong)' }} />
+
+      {/* Grille tarifaire */}
+      <section style={{ padding: '70px 8% 110px' }}>
+        <div className="eyebrow" style={{ marginBottom: 28 }}>Grille tarifaire</div>
+        <div style={{ border: '1px solid var(--line-strong)', borderRadius: 4, background: 'var(--paper)', overflow: 'hidden' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr', background: '#ecebe4', borderBottom: '1px solid var(--line-strong)' }}>
+            {cols.map((h, i) => (
+              <div key={h} className="eyebrow" style={{ padding: '18px 22px', textAlign: i===0?'left':'right' }}>{h}</div>
+            ))}
+          </div>
+          {rows.map((r, i) => (
+            <div key={r.name} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr', borderBottom: i < rows.length-1 ? '1px solid var(--line)' : 'none' }}>
+              <div style={{ padding: '20px 22px' }}>
+                <div className="serif" style={{ fontSize: 22 }}>{r.name}</div>
+                <div style={{ marginTop: 6, fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 12.5, color: 'var(--muted)' }}>{r.sub}</div>
+              </div>
+              {r.prices.map((p, j) => (
+                <div key={j} style={{ padding: '20px 22px', display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+                  <span className="serif" style={{ fontSize: 20, color: p === '—' ? 'var(--muted)' : 'var(--ink)' }}>{p}</span>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        <div style={{ marginTop: 14, fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 13, color: 'var(--muted)' }}>* Prix hors taxe de séjour.</div>
+
+        {/* Notes tarifaires */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, marginTop: 50 }}>
+          {notes.map(([n,t,d,p]) => (
+            <div key={n} style={{ borderTop: '1px solid var(--line-strong)', paddingTop: 18 }}>
+              <div className="eyebrow">Note · {n}</div>
+              <h4 className="serif" style={{ fontSize: 22, margin: '8px 0 6px' }}>{t}</h4>
+              {d && <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 13, color: 'var(--muted)', marginBottom: 10 }}>{d}</div>}
+              <div className="serif" style={{ fontSize: 26 }}>{p}</div>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Bandeau CTA "Prêt à réserver" — commenté pour réutilisation éventuelle */}
@@ -418,12 +434,29 @@ function PageContact({ onNav }) {
         <div>
           <div className="eyebrow">Accès</div>
           <h2 className="serif" style={{ fontSize: 48, margin: '12px 0 30px' }}>Deux <em>chemins</em> jusqu'au refuge.</h2>
-          {[['01','Tramway du Mont-Blanc','Recommandé'],['02','Randonnée — sentier du Mont Lachat','Saison été']].map(([n,t,tag]) => (
+          {[
+            {
+              n: '01',
+              title: 'Tramway du Mont-Blanc',
+              tag: 'Recommandé',
+              desc: (
+                <>Depuis Le Fayet ou Saint-Gervais, le Tramway du Mont-Blanc — le plus haut train de France — monte jusqu'à son terminus, à quelques minutes de marche du refuge. Comptez environ 1h10 de trajet ; réservation vivement conseillée en été&nbsp;: <a href="https://www.tramwaydumontblanc.fr/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--ink)', textDecoration: 'underline' }}>tramwaydumontblanc.fr</a></>
+              ),
+            },
+            {
+              n: '02',
+              title: 'Randonnée — accès depuis Bionnassay',
+              tag: 'Saison été',
+              desc: (
+                <>Depuis le hameau de Bionnassay, un sentier grimpe à travers alpages et forêt, franchit le torrent de Bionnassay puis rejoint la voie du tramway qu'il longe jusqu'au refuge. Une montée soutenue d'environ 3 à 4 heures.</>
+              ),
+            },
+          ].map(({ n, title, tag, desc }) => (
             <div key={n} style={{ display: 'grid', gridTemplateColumns: '60px 1fr auto', gap: 20, padding: '26px 0', borderTop: '1px solid var(--line-strong)', alignItems: 'start' }}>
               <span className="eyebrow">{n}</span>
               <div>
-                <div className="serif" style={{ fontSize: 26 }}>{t}</div>
-                <div style={{ margin: '12px 0' }}><Lines count={3} widths={['100%','92%','64%']} h={7} /></div>
+                <div className="serif" style={{ fontSize: 26 }}>{title}</div>
+                <div style={{ margin: '12px 0 0', fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 14, lineHeight: 1.7, color: 'var(--ink)' }}>{desc}</div>
               </div>
               <span className="chip">{tag}</span>
             </div>
@@ -433,10 +466,14 @@ function PageContact({ onNav }) {
         <aside>
           <div className="eyebrow">Coordonnées</div>
           <div style={{ marginTop: 14, display: 'flex', flexDirection: 'column', gap: 22 }}>
-            {['Téléphone','Email','Adresse','Coordonnées GPS'].map(k => (
+            {[
+              ['Téléphone','04 50 58 05 78'],
+              ['Email','refuge@nidaigle.com'],
+              ['Coordonnées GPS','45.8560° N · 6.7995° E'],
+            ].map(([k,v]) => (
               <div key={k} style={{ borderBottom: '1px solid var(--line)', paddingBottom: 16, display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <span className="eyebrow">{k}</span>
-                <div className="bar" style={{ width: '70%', height: 11 }} />
+                <span className="serif" style={{ fontSize: 22, fontStyle: 'italic' }}>{v}</span>
               </div>
             ))}
           </div>
@@ -467,8 +504,8 @@ function PageAbout({ onNav }) {
           <h2 className="serif" style={{ fontSize: 42, margin: '12px 0 0' }}><em>1933 — 2026</em></h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
-          <p style={{ margin: 0, fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 15, lineHeight: 1.75, color: 'var(--ink)' }}>Fondé en 1933 par Georges Orset, guide de haute montagne de Saint-Gervais, le Refuge du Nid d'Aigle s'est imposé dès sa création comme un passage obligé sur la voie normale du Mont-Blanc. Réparti sur deux niveaux et 242,8 m², le bâtiment accueille alpinistes et personnel dans ses dortoirs, tandis que le rez-de-chaussée abrite un service de restauration de 30 couverts assis. Tenu pendant plusieurs décennies par les familles Orset, puis Perret et Rasera, il est devenu un repère incontournable de la montagne locale.</p>
-          <p style={{ margin: 0, fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 15, lineHeight: 1.75, color: 'var(--ink)' }}>En 2002, un incendie accidentel détruit entièrement le bâtiment. Il est reconstruit en 2006 à son emplacement actuel, en architecture bois intégrée au paysage et résistante aux avalanches et chutes de pierres. En 2026, une nouvelle page s'ouvre avec la reprise du refuge par Fabien Demolis.</p>
+          <p style={{ margin: 0, fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 15, lineHeight: 1.75, color: 'var(--ink)' }}>Fondé en 1933 par Georges Orset, guide de haute montagne de Saint-Gervais, le Refuge du Nid d'Aigle s'est imposé dès sa création comme un passage obligé sur la voie normale du Mont-Blanc. Le bâtiment accueille alpinistes et personnel dans ses dortoirs, tandis que le rez-de-chaussée abrite un service de restauration. Il est devenu un repère incontournable de la montagne locale.</p>
+          <p style={{ margin: 0, fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 15, lineHeight: 1.75, color: 'var(--ink)' }}>En 2002, un incendie détruit entièrement le bâtiment. Il est reconstruit en 2006 à son emplacement actuel, en architecture bois intégrée au paysage et résistante aux avalanches et chutes de pierres. Il est aujourd'hui réparti sur deux niveaux et 242,8 m². En 2026, une nouvelle page s'ouvre avec la reprise du refuge par Fabien Demolis.</p>
         </div>
       </section>
 
@@ -478,14 +515,14 @@ function PageAbout({ onNav }) {
           {[
             ['1913', 'Le Tramway du Mont-Blanc atteint le Nid d\'Aigle. Le site devient accessible à tous, ouvrant la voie normale à un public plus large.'],
             ['1933', 'Georges Orset, guide de Saint-Gervais, construit et ouvre le premier refuge. Il gère également le refuge du Goûter, inauguré trois ans plus tard.'],
-            ['2002', 'Incendie accidentel. Le bâtiment est entièrement détruit. Le refuge ferme le temps de la reconstruction.'],
+            ['2002', 'Incendie au refuge. Le bâtiment est entièrement détruit. Le refuge ferme le temps de la reconstruction.'],
             ['2006', 'Réouverture après reconstruction. Architecture bois intégrée au paysage, conçue pour résister aux avalanches et aux chutes de pierres.'],
-            ['2025', 'Inauguration du nouveau terminus du Tramway du Mont-Blanc, modernisant l\'accès au refuge après plus d\'un siècle de présence sur le site.'],
-            ['2026', 'Le département reprend la concession du refuge et en confie la direction à Fabien Demolis, qui porte un nouveau projet pour l\'accueil et la valorisation du site.'],
+            ['2026', 'Inauguration du nouveau terminus du Tramway du Mont-Blanc, modernisant l\'accès au refuge après plus d\'un siècle de présence sur le site.\n' +
+            'Fabien Demolis reprend la gestion du refuge, portant un nouveau projet pour l\'accueil et la valorisation du site.'],
           ].map(([y, txt]) => (
             <div key={y} style={{ display: 'grid', gridTemplateColumns: '180px 1fr', gap: 20, padding: '22px 0', borderBottom: '1px solid var(--line)' }}>
               <span className="serif" style={{ fontStyle: 'italic', fontSize: 32, color: 'var(--muted)' }}>{y}</span>
-              <div style={{ alignSelf: 'center', fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 14, lineHeight: 1.7, color: 'var(--ink)' }}>{txt}</div>
+              <div style={{ alignSelf: 'center', whiteSpace: 'pre-line', fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 14, lineHeight: 1.7, color: 'var(--ink)' }}>{txt}</div>
             </div>
           ))}
         </div>
@@ -496,9 +533,9 @@ function PageAbout({ onNav }) {
         <div>
           <div className="eyebrow">Situation</div>
           <h2 className="serif" style={{ fontSize: 54, margin: '14px 0 22px' }}>Au bout du tramway, <em>sans route d'accès</em>.</h2>
-          <p style={{ margin: '0 0 0', maxWidth: 540, fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 15, lineHeight: 1.75, color: 'var(--ink)' }}>Non accessible par voie carrossable, le Nid d'Aigle se rejoint à pied ou par le Tramway du Mont-Blanc, dont il marque le dernier arrêt. Situé sur la commune de Saint-Gervais dans le Massif du Mont-Blanc, il s'inscrit parmi les trois refuges de la voie royale reliant la vallée au sommet. Ouvert du 1er juin au 30 septembre, il assure chaque été plus de 70 repas par jour.</p>
+          <p style={{ margin: '0 0 0', maxWidth: 540, fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 15, lineHeight: 1.75, color: 'var(--ink)' }}>Non accessible par voie carrossable, le Nid d'Aigle se rejoint à pied ou par le Tramway du Mont-Blanc, dont il marque le dernier arrêt. Situé sur la commune de Saint-Gervais dans le Massif du Mont-Blanc, il s'inscrit parmi les trois refuges de la voie normale reliant la vallée au sommet.</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20, marginTop: 36, maxWidth: 460 }}>
-            {[['2 372 m','Altitude'],['28','Couchages'],['97 j','Saison annuelle'],['~900','Nuitées / an']].map(([v,k]) => (
+            {[['2 412 m','Altitude'],['30','Couchages'],['Juin → Sept'],['Massif du Mont-Blanc']].map(([v,k]) => (
               <div key={k} style={{ borderTop: '1px solid var(--line-strong)', paddingTop: 12 }}>
                 <div className="serif" style={{ fontStyle: 'italic', fontSize: 32 }}>{v}</div>
                 <div className="eyebrow">{k}</div>
@@ -515,7 +552,7 @@ function PageAbout({ onNav }) {
         <h2 className="serif" style={{ fontSize: 54, margin: '14px 0 32px', maxWidth: 900 }}>Une étape, <em>entre deux mondes.</em></h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 30 }}>
           {[
-            ['Vers le bas', 'Saint-Gervais', 'Point de départ de la voie royale, la ville thermale est à deux heures de descente à pied ou trente minutes par le Tramway du Mont-Blanc.'],
+            ['Vers le bas', 'Saint-Gervais', 'Point de départ de la voie normale, la ville thermale est à deux heures de descente à pied ou trente minutes par le Tramway du Mont-Blanc.'],
             ['Vers le haut', 'Refuge du Goûter', 'Prochaine étape pour les alpinistes en route vers le toit de l\'Europe. Le refuge du Goûter, à 3 835 mètres, est accessible en trois à quatre heures de marche.'],
             ['Au-delà', 'Sommet du Mont-Blanc', 'À 4 808 mètres, le toit de l\'Europe. Le Nid d\'Aigle est la première étape de l\'ascension — d\'ici, les alpinistes gagnent le Goûter avant de s\'élancer vers le sommet le lendemain matin.'],
           ].map(([k, v, txt]) => (
