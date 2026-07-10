@@ -1,0 +1,25 @@
+---
+/**
+ * Bouton / lien d'action (repris de `.btn` du wireframe).
+ *  - href fourni     → rendu comme <a>
+ *  - href absent     → rendu comme <button>
+ *  - variant primary → fond encre, texte papier
+ */
+interface Props {
+  href?: string;
+  variant?: "default" | "primary";
+  class?: string;
+}
+
+const { href, variant = "default", class: className = "" } = Astro.props;
+
+const base =
+  "inline-block cursor-pointer rounded-full border border-ink px-5 py-[11px] font-mono text-[10px] uppercase tracking-[0.08em] no-underline";
+const skin = variant === "primary" ? "bg-ink text-paper" : "bg-paper text-ink";
+
+const Tag = href ? "a" : "button";
+---
+
+<Tag href={href} class:list={[base, skin, className]}>
+  <slot />
+</Tag>

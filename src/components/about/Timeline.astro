@@ -1,0 +1,20 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n";
+
+const { timeline } = useTranslations(getLangFromUrl(Astro.url)).about;
+---
+
+<section class="px-[8%] pb-[90px]">
+  <div class="border-t border-line-strong">
+    {
+      timeline.map((entry) => (
+        <div class="grid grid-cols-[180px_1fr] gap-5 border-b border-line py-[22px]">
+          <span class="serif text-[32px] italic text-muted">{entry.year}</span>
+          <div class="self-center whitespace-pre-line font-sans text-[14px] leading-[1.7] text-ink">
+            {entry.text}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

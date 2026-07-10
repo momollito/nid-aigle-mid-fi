@@ -1,0 +1,16 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n";
+
+const { history } = useTranslations(getLangFromUrl(Astro.url)).about;
+---
+
+<section class="grid grid-cols-[1fr_1.6fr] items-start gap-[80px] px-[8%] py-[90px]">
+  <div>
+    <div class="eyebrow">{history.eyebrow}</div>
+    <h2 class="serif mt-3 text-[42px]" set:html={history.title} />
+  </div>
+
+  <div class="flex flex-col gap-[22px]">
+    {history.paragraphs.map((p) => <p class="font-sans text-[15px] leading-[1.75] text-ink">{p}</p>)}
+  </div>
+</section>

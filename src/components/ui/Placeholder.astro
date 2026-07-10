@@ -1,0 +1,70 @@
+---
+/**
+ * Emplacement d'image (repris de `ImgBox` du wireframe) : rectangle hachuré
+ * avec une légende. Sera remplacé par de vraies photos plus tard.
+ *  - dark  : variante sombre (héros, glacier...)
+ *  - frame : bordure + coins arrondis (true par défaut ; false pour le plein cadre)
+ *  - class : dimensions / positionnement (ex. "h-[440px]", "absolute inset-0")
+ */
+interface Props {
+  label: string;
+  dark?: boolean;
+  frame?: boolean;
+  class?: string;
+}
+
+const { label, dark = false, frame = true, class: className = "" } = Astro.props;
+---
+
+<div
+  class:list={[
+    "placeholder relative flex items-center justify-center overflow-hidden",
+    { "placeholder--dark": dark, "placeholder--frameless": !frame },
+    className,
+  ]}
+>
+  <span class="placeholder__cap">{label}</span>
+</div>
+
+<style>
+  .placeholder {
+    border: 1px solid var(--color-line-strong);
+    border-radius: 4px;
+    background:
+      repeating-linear-gradient(135deg, transparent 0 13px, rgba(42, 42, 40, 0.045) 13px 14px),
+      var(--color-fill-soft);
+  }
+
+  .placeholder--dark {
+    background:
+      repeating-linear-gradient(135deg, transparent 0 13px, rgba(255, 255, 255, 0.05) 13px 14px),
+      #4a4843;
+    border-color: #3a3835;
+  }
+
+  /* Déclarée après .placeholder pour bien retirer bordure + arrondi. */
+  .placeholder--frameless {
+    border: none;
+    border-radius: 0;
+  }
+
+  .placeholder__cap {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink);
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--color-line);
+    border-radius: 2px;
+    padding: 4px 10px;
+  }
+
+  .placeholder--dark .placeholder__cap {
+    background: rgba(30, 30, 28, 0.7);
+    border-color: #555;
+    color: #f0efe9;
+  }
+</style>

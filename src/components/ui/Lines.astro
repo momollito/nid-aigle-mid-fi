@@ -1,0 +1,19 @@
+---
+/**
+ * Barres grises = placeholder de texte (repris de `Lines` du wireframe).
+ * Représente un bloc de contenu encore à définir.
+ */
+interface Props {
+  count?: number;
+  widths?: string[];
+  gap?: number;
+  h?: number;
+}
+
+const { count = 3, widths = ["100%", "94%", "78%"], gap = 9, h = 8 } = Astro.props;
+const rows = Array.from({ length: count }, (_, i) => widths[i % widths.length]);
+---
+
+<div class="flex flex-col" style={`gap:${gap}px`}>
+  {rows.map((w) => <div class="rounded-[2px] bg-fill" style={`width:${w};height:${h}px`} />)}
+</div>

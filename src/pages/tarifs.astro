@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import TarifsHeader from "../components/tarifs/TarifsHeader.astro";
+import Reservation from "../components/tarifs/Reservation.astro";
+import PricingTable from "../components/tarifs/PricingTable.astro";
+import PricingNotes from "../components/tarifs/PricingNotes.astro";
+import { getLangFromUrl, useTranslations } from "../i18n";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<Layout title={t.meta.tarifs.title} description={t.meta.tarifs.description}>
+  <TarifsHeader />
+  <Reservation />
+  <PricingTable />
+  <PricingNotes />
+</Layout>

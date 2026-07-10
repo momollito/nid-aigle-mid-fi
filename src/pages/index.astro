@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/home/Hero.astro";
+import Intro from "../components/home/Intro.astro";
+import Triptych from "../components/home/Triptych.astro";
+import Cards from "../components/home/Cards.astro";
+import { getLangFromUrl, useTranslations } from "../i18n";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<Layout title={t.meta.home.title} description={t.meta.home.description}>
+  <Hero />
+  <Intro />
+  <Triptych />
+  <Cards />
+</Layout>
