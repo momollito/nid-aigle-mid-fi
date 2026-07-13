@@ -1,0 +1,49 @@
+---
+import { getLangFromUrl, useTranslations, localizedPath } from "../../i18n";
+import Chip from "../ui/Chip.astro";
+import Button from "../ui/Button.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const { access, coords } = useTranslations(lang).contact;
+---
+
+<section class="grid grid-cols-[1.4fr_1fr] gap-[70px] px-[8%] pb-[110px] pt-[70px]">
+  <!-- Les deux accès -->
+  <div>
+    <div class="eyebrow">{access.eyebrow}</div>
+    <h2 class="serif mb-[30px] mt-3 text-[48px]" set:html={access.title} />
+
+    {
+      access.routes.map((route) => (
+        <div class="grid grid-cols-[60px_1fr_auto] items-start gap-5 border-t border-line-strong py-[26px]">
+          <span class="eyebrow">{route.n}</span>
+          <div>
+            <div class="serif text-[26px]">{route.title}</div>
+            <div
+              class="mt-3 font-sans text-[14px] leading-[1.7] text-ink [&_a]:text-ink [&_a]:underline"
+              set:html={route.desc}
+            />
+          </div>
+          <Chip>{route.tag}</Chip>
+        </div>
+      ))
+    }
+    <div class="border-t border-line-strong"></div>
+  </div>
+
+  <!-- Coordonnées -->
+  <aside>
+    <div class="eyebrow">{coords.eyebrow}</div>
+    <div class="mt-[14px] flex flex-col gap-[22px]">
+      {
+        coords.rows.map((row) => (
+          <div class="flex flex-col gap-2 border-b border-line pb-4">
+            <span class="eyebrow">{row.label}</span>
+            <span class="serif text-[22px] italic">{row.value}</span>
+          </div>
+        ))
+      }
+    </div>
+    <Button href={localizedPath(lang, "tarifs")} variant="primary" class="mt-6">{coords.cta}</Button>
+  </aside>
+</section>

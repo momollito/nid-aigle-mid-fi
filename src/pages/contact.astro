@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContactHeader from "../components/contact/ContactHeader.astro";
+import AccessMap from "../components/contact/AccessMap.astro";
+import AccessDetails from "../components/contact/AccessDetails.astro";
+import { getLangFromUrl, useTranslations } from "../i18n";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<Layout title={t.meta.contact.title} description={t.meta.contact.description}>
+  <ContactHeader />
+  <AccessMap />
+  <AccessDetails />
+</Layout>

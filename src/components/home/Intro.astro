@@ -1,0 +1,25 @@
+---
+import { getLangFromUrl, useTranslations, localizedPath } from "../../i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const { intro } = useTranslations(lang).home;
+---
+
+<section class="grid grid-cols-[1fr_1.4fr] items-start gap-[80px] px-[8%] py-[100px]">
+  <div>
+    <div class="eyebrow">{intro.eyebrow}</div>
+    <h2 class="serif mt-[14px] text-[54px]" set:html={intro.title} />
+  </div>
+
+  <div class="flex max-w-[620px] flex-col gap-5">
+    <p class="font-sans text-[15px] leading-[1.75] text-ink">{intro.body}</p>
+    <div class="mt-2">
+      <a
+        href={localizedPath(lang, "about")}
+        class="eyebrow border-b border-ink pb-[3px] text-ink no-underline"
+      >
+        {intro.link}
+      </a>
+    </div>
+  </div>
+</section>

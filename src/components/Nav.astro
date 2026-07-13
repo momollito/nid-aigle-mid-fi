@@ -1,0 +1,50 @@
+---
+import { getLangFromUrl, useTranslations, localizedPath, type RouteKey } from "../i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Liens texte de la barre (le logo pointe vers l'accueil, Contact est le bouton).
+const links: RouteKey[] = ["tarifs", "about"];
+
+const here = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const isActive = (key: RouteKey) => {
+  const target = localizedPath(lang, key).replace(/\/+$/, "") || "/";
+  return here === target;
+};
+---
+
+<header class="absolute inset-x-0 top-[22px] z-30 flex justify-center">
+  <nav
+    class="flex items-center gap-6 rounded-full border border-line-strong bg-paper/95 py-2 pl-[22px] pr-2 shadow-[0_6px_20px_-10px_rgba(0,0,0,0.18)] backdrop-blur-sm"
+  >
+    <a
+      href={localizedPath(lang, "home")}
+      class="flex items-center gap-2 font-serif text-[19px] italic text-ink no-underline"
+    >
+      <span class="inline-block h-[14px] w-[14px] rounded-full border-[1.5px] border-ink"></span>
+      Nid d'Aigle
+    </a>
+
+    {
+      links.map((key) => (
+        <a
+          href={localizedPath(lang, key)}
+          class:list={[
+            "font-sans text-[13px] no-underline",
+            isActive(key) ? "text-ink" : "text-muted",
+          ]}
+        >
+          {t.nav[key]}
+        </a>
+      ))
+    }
+
+    <a
+      href={localizedPath(lang, "contact")}
+      class="rounded-full bg-ink px-5 py-[9px] font-sans text-[13px] text-paper no-underline"
+    >
+      {t.nav.contact}
+    </a>
+  </nav>
+</header>

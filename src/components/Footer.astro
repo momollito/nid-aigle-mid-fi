@@ -1,0 +1,50 @@
+---
+import { getLangFromUrl, useTranslations, localizedPath, type RouteKey } from "../i18n";
+import Lines from "./ui/Lines.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const navLinks: { key: RouteKey; label: string }[] = [
+  { key: "home", label: t.nav.home },
+  { key: "tarifs", label: t.nav.tarifs },
+  { key: "about", label: t.nav.about },
+  { key: "contact", label: t.nav.contact },
+];
+---
+
+<footer
+  class="grid grid-cols-4 gap-[30px] border-t border-line-strong bg-[#efede6] px-[8%] pb-[30px] pt-[46px]"
+>
+  <div>
+    <div class="serif mb-2 text-[22px] italic">{t.footer.title}</div>
+    <div class="eyebrow">{t.footer.tagline}</div>
+  </div>
+
+  <div>
+    <div class="eyebrow mb-[14px]">{t.footer.navHeading}</div>
+    <div class="flex flex-col gap-2">
+      {
+        navLinks.map(({ key, label }) => (
+          <a href={localizedPath(lang, key)} class="text-[12px] text-ink no-underline">
+            {label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <div>
+    <div class="eyebrow mb-[14px]">{t.footer.contactHeading}</div>
+    <Lines count={3} widths={["80%", "60%", "70%"]} h={6} />
+  </div>
+
+  <div>
+    <div class="eyebrow mb-[14px]">{t.footer.seasonHeading}</div>
+    <Lines count={2} widths={["80%", "60%", "70%"]} h={6} />
+  </div>
+
+  <div class="col-span-full mt-[10px] border-t border-line pt-[18px]">
+    <span class="eyebrow">{t.footer.copyright}</span>
+  </div>
+</footer>

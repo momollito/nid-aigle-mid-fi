@@ -1,0 +1,42 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n";
+import Lines from "../ui/Lines.astro";
+
+const { booking, practical } = useTranslations(getLangFromUrl(Astro.url)).tarifs;
+---
+
+<section class="grid grid-cols-[1.4fr_1fr] items-start gap-[80px] px-[8%] pt-[70px]">
+  <!-- Colonne réservation -->
+  <div>
+    <div class="eyebrow">{booking.eyebrow}</div>
+    <h2 class="serif mb-7 mt-3 text-[46px]" set:html={booking.title} />
+    <div class="mb-6 mt-2">
+      <Lines count={2} widths={["100%", "80%"]} h={7} />
+    </div>
+
+    <!-- Emplacement de la future plateforme de réservation -->
+    <div
+      class="flex h-[100px] items-center justify-center rounded-[4px] border border-line-strong bg-paper"
+    >
+      <span class="eyebrow text-muted">{booking.embedLabel}</span>
+    </div>
+  </div>
+
+  <!-- Colonne « en pratique » -->
+  <aside class="flex flex-col gap-7">
+    <div>
+      <div class="eyebrow">{practical.eyebrow}</div>
+      <h3 class="serif mb-4 mt-[10px] text-[30px]" set:html={practical.title} />
+      <div class="flex flex-col gap-[14px]">
+        {
+          practical.rows.map((row) => (
+            <div class="grid grid-cols-[110px_1fr] gap-4 border-b border-line pb-[14px]">
+              <span class="eyebrow">{row.label}</span>
+              <span class="font-sans text-[14px] leading-[1.5] text-ink">{row.value}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </aside>
+</section>

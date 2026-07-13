@@ -1,0 +1,29 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n";
+import Placeholder from "../ui/Placeholder.astro";
+
+const { geography } = useTranslations(getLangFromUrl(Astro.url)).about;
+---
+
+<section
+  class="grid grid-cols-[1.4fr_1fr] items-center gap-[60px] bg-[#ecebe4] px-[8%] py-[90px]"
+>
+  <div>
+    <div class="eyebrow">{geography.eyebrow}</div>
+    <h2 class="serif mb-[22px] mt-[14px] text-[54px]" set:html={geography.title} />
+    <p class="max-w-[540px] font-sans text-[15px] leading-[1.75] text-ink">{geography.body}</p>
+
+    <div class="mt-9 grid max-w-[460px] grid-cols-2 gap-5">
+      {
+        geography.stats.map((s) => (
+          <div class="border-t border-line-strong pt-3">
+            <div class="serif text-[32px] italic">{s.value}</div>
+            <div class="eyebrow">{s.label}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <Placeholder label="Plan altitude · Saint-Gervais → Mont-Blanc" class="h-[380px]" />
+</section>

@@ -1,0 +1,49 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n";
+
+const { pricing } = useTranslations(getLangFromUrl(Astro.url)).tarifs;
+const cols = "grid-cols-[2fr_1fr_1fr_1fr_1fr]";
+---
+
+<!-- Séparateur -->
+<div class="mx-[8%] mt-[80px] h-px bg-line-strong"></div>
+
+<section class="px-[8%] pt-[70px]">
+  <div class="eyebrow mb-7">{pricing.eyebrow}</div>
+
+  <div class="overflow-hidden rounded-[4px] border border-line-strong bg-paper">
+    <!-- En-tête -->
+    <div class:list={["grid border-b border-line-strong bg-[#ecebe4]", cols]}>
+      {
+        pricing.columns.map((col, i) => (
+          <div class:list={["eyebrow px-[22px] py-[18px]", i === 0 ? "text-left" : "text-right"]}>
+            {col}
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Lignes -->
+    {
+      pricing.rows.map((row, i) => (
+        <div
+          class:list={["grid", cols, i < pricing.rows.length - 1 ? "border-b border-line" : ""]}
+        >
+          <div class="px-[22px] py-5">
+            <div class="serif text-[22px]">{row.name}</div>
+            <div class="mt-[6px] font-sans text-[12.5px] text-muted">{row.sub}</div>
+          </div>
+          {row.prices.map((p) => (
+            <div class="flex items-center justify-end px-[22px] py-5">
+              <span class:list={["serif text-[20px]", p === "—" ? "text-muted" : "text-ink"]}>
+                {p}
+              </span>
+            </div>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="mt-[14px] font-sans text-[13px] text-muted">{pricing.note}</div>
+</section>

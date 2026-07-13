@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/*  Tokens de design — repris à l'identique du wireframe.             */
+/*  Ils deviennent des utilitaires Tailwind : bg-ink, text-muted,     */
+/*  border-line-strong, font-serif, etc.                              */
+/* ------------------------------------------------------------------ */
+@theme {
+  --color-bg: #f3f2ee;
+  --color-paper: #ffffff;
+  --color-ink: #2a2a28;
+  --color-muted: #8a887f;
+  --color-line: #d6d3ca;
+  --color-line-strong: #b9b6ac;
+  --color-fill: #e6e4dc;
+  --color-fill-soft: #eceae3;
+
+  --font-serif: "Instrument Serif", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-mono);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Primitives typographiques réutilisées partout.                    */
+/*  Placées dans @layer components pour rester surchargeables par     */
+/*  des utilitaires Tailwind (ex. text-[#f4f3ef] sur .serif).         */
+/* ------------------------------------------------------------------ */
+@layer components {
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .serif {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.04;
+    color: var(--color-ink);
+  }
+
+  .serif em {
+    font-style: italic;
+  }
+}
