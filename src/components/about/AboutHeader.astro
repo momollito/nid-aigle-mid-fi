@@ -5,11 +5,14 @@ import Placeholder from "../ui/Placeholder.astro";
 const { header } = useTranslations(getLangFromUrl(Astro.url)).about;
 ---
 
-<section class="px-[8%] pb-[30px] pt-[130px]">
+<section class="px-6 pb-8 pt-28 md:px-[8%] lg:pb-7.5 lg:pt-32.5">
   <div class="eyebrow">{header.eyebrow}</div>
-  <h1 class="serif mt-[14px] text-[92px]" set:html={header.title} />
+  <h1 class="serif mt-3.5 text-title" set:html={header.title} />
 </section>
 
-<section class="px-[8%] pt-[30px]">
-  <Placeholder label="Photo d'archive · construction, 1933" class="h-[440px]" />
+<section class="px-6 pt-8 md:px-[8%] lg:pt-7.5">
+  <Placeholder
+    label="Photo d'archive · construction, 1933"
+    class="aspect-16/9 w-full lg:aspect-auto lg:h-110"
+  />
 </section>

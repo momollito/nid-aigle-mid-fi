@@ -7,34 +7,39 @@ const lang = getLangFromUrl(Astro.url);
 const { hero } = useTranslations(lang).home;
 ---
 
-<section class="relative h-[700px] border-b border-line-strong">
+<section
+  class="relative flex min-h-[85svh] flex-col justify-end overflow-hidden border-b border-line-strong lg:block lg:h-175"
+>
   <Placeholder label="Photo refuge 'Wow'" dark frame={false} class="absolute inset-0 h-full w-full" />
 
   <!-- Dégradé sombre en pied de héros -->
   <div
-    class="absolute inset-0 z-[1]"
+    class="absolute inset-0 z-1"
     style="background:linear-gradient(to top, rgba(20,19,18,0.82) 0%, rgba(20,19,18,0.2) 45%, transparent 70%)"
   >
   </div>
 
-  <!-- Bas-gauche : eyebrow + titre + CTA -->
-  <div class="absolute bottom-0 left-0 z-[2] max-w-[720px] px-[52px] pb-[44px]">
-    <div class="eyebrow mb-4 text-[#b8b5ad]">{hero.eyebrow}</div>
-    <h1 class="serif mb-[28px] text-[76px] leading-none text-[#f4f3ef]" set:html={hero.title} />
-    <Button href={localizedPath(lang, "tarifs")} variant="primary">{hero.cta}</Button>
-  </div>
-
-  <!-- Bas-droite : statistiques -->
+  <!-- Contenu : empilé sur mobile, réparti gauche/droite sur desktop -->
   <div
-    class="absolute bottom-0 right-0 z-[2] flex flex-col items-end gap-[18px] px-[52px] pb-[44px]"
+    class="relative z-2 flex flex-col gap-10 px-6 pb-10 md:px-10 lg:absolute lg:inset-0 lg:flex-row lg:items-end lg:justify-between lg:gap-6 lg:px-13 lg:pb-11"
   >
-    {
-      hero.stats.map((s) => (
-        <div class="flex flex-col items-end gap-[2px]">
-          <span class="eyebrow text-[#8a8780]">{s.label}</span>
-          <span class="serif text-[20px] italic text-[#f4f3ef]">{s.value}</span>
-        </div>
-      ))
-    }
+    <!-- Titre + CTA -->
+    <div class="lg:max-w-180">
+      <div class="eyebrow mb-4 text-[#b8b5ad]">{hero.eyebrow}</div>
+      <h1 class="serif mb-6 text-display text-[#f4f3ef] lg:mb-7" set:html={hero.title} />
+      <Button href={localizedPath(lang, "tarifs")} variant="primary">{hero.cta}</Button>
+    </div>
+
+    <!-- Statistiques -->
+    <div class="grid grid-cols-2 gap-x-8 gap-y-4 lg:flex lg:flex-col lg:items-end lg:gap-4.5">
+      {
+        hero.stats.map((s) => (
+          <div class="flex flex-col gap-0.5 lg:items-end">
+            <span class="eyebrow text-[#8a8780]">{s.label}</span>
+            <span class="serif text-[20px] italic text-[#f4f3ef]">{s.value}</span>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </section>

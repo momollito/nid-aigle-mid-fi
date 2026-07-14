@@ -7,24 +7,34 @@ const lang = getLangFromUrl(Astro.url);
 const { access, coords } = useTranslations(lang).contact;
 ---
 
-<section class="grid grid-cols-[1.4fr_1fr] gap-[70px] px-[8%] pb-[110px] pt-[70px]">
+<section
+  class="grid grid-cols-1 gap-12 px-6 pb-16 pt-12 md:px-[8%] lg:grid-cols-[1.4fr_1fr] lg:gap-17.5 lg:pb-27.5 lg:pt-17.5"
+>
   <!-- Les deux accès -->
   <div>
     <div class="eyebrow">{access.eyebrow}</div>
-    <h2 class="serif mb-[30px] mt-3 text-[48px]" set:html={access.title} />
+    <h2 class="serif mb-8 mt-3 text-h2 lg:mb-7.5" set:html={access.title} />
 
     {
       access.routes.map((route) => (
-        <div class="grid grid-cols-[60px_1fr_auto] items-start gap-5 border-t border-line-strong py-[26px]">
+        <div class="grid grid-cols-[44px_1fr] items-start gap-4 border-t border-line-strong py-6 lg:grid-cols-[60px_1fr_auto] lg:gap-5 lg:py-6.5">
           <span class="eyebrow">{route.n}</span>
           <div>
-            <div class="serif text-[26px]">{route.title}</div>
+            <div class="flex flex-wrap items-center gap-3">
+              <div class="serif text-h4">{route.title}</div>
+              {/* Étiquette inline sur mobile, colonne dédiée sur desktop */}
+              <span class="lg:hidden">
+                <Chip>{route.tag}</Chip>
+              </span>
+            </div>
             <div
               class="mt-3 font-sans text-[14px] leading-[1.7] text-ink [&_a]:text-ink [&_a]:underline"
               set:html={route.desc}
             />
           </div>
-          <Chip>{route.tag}</Chip>
+          <span class="hidden lg:block">
+            <Chip>{route.tag}</Chip>
+          </span>
         </div>
       ))
     }
@@ -34,7 +44,7 @@ const { access, coords } = useTranslations(lang).contact;
   <!-- Coordonnées -->
   <aside>
     <div class="eyebrow">{coords.eyebrow}</div>
-    <div class="mt-[14px] flex flex-col gap-[22px]">
+    <div class="mt-3.5 flex flex-col gap-5.5">
       {
         coords.rows.map((row) => (
           <div class="flex flex-col gap-2 border-b border-line pb-4">

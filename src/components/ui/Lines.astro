@@ -15,5 +15,5 @@ const rows = Array.from({ length: count }, (_, i) => widths[i % widths.length]);
 ---
 
 <div class="flex flex-col" style={`gap:${gap}px`}>
-  {rows.map((w) => <div class="rounded-[2px] bg-fill" style={`width:${w};height:${h}px`} />)}
+  {rows.map((w) => <div class="rounded-xs bg-fill" style={`width:${w};height:${h}px`} />)}
 </div>

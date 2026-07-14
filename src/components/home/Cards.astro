@@ -6,21 +6,21 @@ const lang = getLangFromUrl(Astro.url);
 const { cards } = useTranslations(lang).home;
 ---
 
-<section class="px-[8%] pb-[120px]">
+<section class="px-6 pb-16 md:px-[8%] lg:pb-30">
   <div class="mb-7">
     <div class="eyebrow">{cards.eyebrow}</div>
-    <h2 class="serif mt-[10px] text-[46px]">{cards.title}</h2>
+    <h2 class="serif mt-2.5 text-h2-sm">{cards.title}</h2>
   </div>
 
-  <div class="grid grid-cols-3 gap-4">
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
     {
       cards.items.map((item) => (
         <a
           href={localizedPath(lang, item.target as RouteKey)}
-          class="flex min-h-[220px] flex-col gap-[14px] rounded-[4px] border border-line-strong bg-paper p-7 no-underline"
+          class="flex min-h-55 flex-col gap-3.5 rounded-sm border border-line-strong bg-paper p-7 no-underline"
         >
           <span class="eyebrow">{item.n}</span>
-          <h3 class="serif text-[30px]">{item.title}</h3>
+          <h3 class="serif text-h3">{item.title}</h3>
           <Lines count={3} widths={["100%", "90%", "55%"]} h={7} />
           <span class="eyebrow mt-auto">{cards.more}</span>
         </a>
