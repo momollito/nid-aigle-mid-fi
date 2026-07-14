@@ -18,7 +18,7 @@ const cols = "grid-cols-[2fr_1fr_1fr_1fr_1fr]";
       <div class:list={["grid border-b border-line-strong bg-[#ecebe4]", cols]}>
         {
           pricing.columns.map((col, i) => (
-            <div class:list={["eyebrow px-5.5 py-4.5", i === 0 ? "text-left" : "text-right"]}>
+            <div class:list={["eyebrow px-5.5 py-4.5", i === 0 ? "text-left" : "text-center"]}>
               {col}
             </div>
           ))
@@ -36,7 +36,7 @@ const cols = "grid-cols-[2fr_1fr_1fr_1fr_1fr]";
               <div class="mt-1.5 font-sans text-[12.5px] text-muted">{row.sub}</div>
             </div>
             {row.prices.map((p) => (
-              <div class="flex items-center justify-end px-5.5 py-5">
+              <div class="flex items-center justify-center px-5.5 py-5">
                 <span class:list={["serif text-[20px]", p === "—" ? "text-muted" : "text-ink"]}>
                   {p}
                 </span>

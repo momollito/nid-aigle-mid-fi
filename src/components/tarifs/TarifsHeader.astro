@@ -1,6 +1,5 @@
 ---
 import { getLangFromUrl, useTranslations } from "../../i18n";
-import Lines from "../ui/Lines.astro";
 
 const { header } = useTranslations(getLangFromUrl(Astro.url)).tarifs;
 ---
@@ -10,7 +9,4 @@ const { header } = useTranslations(getLangFromUrl(Astro.url)).tarifs;
 >
   <div class="eyebrow">{header.eyebrow}</div>
   <h1 class="serif mt-3.5 text-title" set:html={header.title} />
-  <div class="mt-6 max-w-135">
-    <Lines count={2} widths={["100%", "72%"]} />
-  </div>
 </section>

@@ -1,6 +1,5 @@
 ---
 import { getLangFromUrl, useTranslations, localizedPath, type RouteKey } from "../../i18n";
-import Lines from "../ui/Lines.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const { cards } = useTranslations(lang).home;
@@ -21,7 +20,7 @@ const { cards } = useTranslations(lang).home;
         >
           <span class="eyebrow">{item.n}</span>
           <h3 class="serif text-h3">{item.title}</h3>
-          <Lines count={3} widths={["100%", "90%", "55%"]} h={7} />
+          <p class="font-sans text-[14px] leading-[1.7] text-muted">{item.desc}</p>
           <span class="eyebrow mt-auto">{cards.more}</span>
         </a>
       ))

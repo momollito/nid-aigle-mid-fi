@@ -1,6 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from "../../i18n";
-import Lines from "../ui/Lines.astro";
+import Button from "../ui/Button.astro";
 
 const { booking, practical } = useTranslations(getLangFromUrl(Astro.url)).tarifs;
 ---
@@ -11,17 +11,15 @@ const { booking, practical } = useTranslations(getLangFromUrl(Astro.url)).tarifs
   <!-- Colonne réservation -->
   <div>
     <div class="eyebrow">{booking.eyebrow}</div>
-    <h2 class="serif mb-7 mt-3 text-h2-sm" set:html={booking.title} />
-    <div class="mb-6 mt-2">
-      <Lines count={2} widths={["100%", "80%"]} h={7} />
-    </div>
+    <h2 class="serif mb-5 mt-3 text-h2-sm" set:html={booking.title} />
+    <p class="mb-7 max-w-135 font-sans text-[15px] leading-[1.75] text-ink">{booking.intro}</p>
 
-    <!-- Emplacement de la future plateforme de réservation -->
-    <div
-      class="flex h-25 items-center justify-center rounded-sm border border-line-strong bg-paper px-4"
-    >
-      <span class="eyebrow text-center text-muted">{booking.embedLabel}</span>
-    </div>
+    <Button href={booking.ctaHref} variant="primary" size="lg" target="_blank">{booking.cta}</Button>
+
+    <p
+      class="mt-6 max-w-135 font-sans text-[13px] leading-[1.7] text-muted [&_a]:text-ink [&_a]:underline"
+      set:html={booking.fallback}
+    />
   </div>
 
   <!-- Colonne « en pratique » -->

@@ -48,7 +48,13 @@ const en: Dictionary = {
     tagline: "2,412 m · Mont Blanc Massif",
     navHeading: "Navigation",
     contactHeading: "Contact",
+    contactLines: [
+      { text: "04 50 58 05 78", href: "tel:+33450580578" },
+      { text: "refuge@nidaigle.com", href: "mailto:refuge@nidaigle.com" },
+      { text: "Saint-Gervais-les-Bains" },
+    ],
     seasonHeading: "Season",
+    seasonLines: ["Open June to September", "Booking recommended"],
     copyright: "© 2026 — Bak Studio",
   },
 
@@ -75,9 +81,24 @@ const en: Dictionary = {
       title: "Three things to know before heading up.",
       more: "Learn more →",
       items: [
-        { n: "01", title: "Rates & Booking", target: "tarifs" },
-        { n: "02", title: "Access", target: "contact" },
-        { n: "03", title: "About", target: "about" },
+        {
+          n: "01",
+          title: "Rates & Booking",
+          target: "tarifs",
+          desc: "Half board, overnight-only or packed lunch. See the 2026 rates and book your bed online.",
+        },
+        {
+          n: "02",
+          title: "Access",
+          target: "contact",
+          desc: "By the Tramway du Mont-Blanc or on foot from Bionnassay. Two paths to the refuge, with no road access.",
+        },
+        {
+          n: "03",
+          title: "About",
+          target: "about",
+          desc: "A refuge on the normal route up Mont Blanc since 1933. Its history, its location, its role between valley and summit.",
+        },
       ],
     },
   },
@@ -90,7 +111,14 @@ const en: Dictionary = {
     booking: {
       eyebrow: "Online booking",
       title: "Book your <em>overnight stay</em>.", // HTML
-      embedLabel: "Booking platform · embedded",
+      intro:
+        "Booking is handled online, on the Pays du Mont-Blanc refuge reservation platform. Select your dates and type of bed, then confirm your stay in just a few minutes.",
+      cta: "Book online →",
+      ctaHref:
+        "https://www.monrefugepaysdumontblanc.com/uk/il4-refuge_i136101-refuge-du-nid-d-aigle.aspx",
+      // HTML — contains a mailto link
+      fallback:
+        "If no places are available for online booking, email us at <a href='mailto:refuge@nidaigle.com'>refuge@nidaigle.com</a>.",
     },
     practical: {
       eyebrow: "Good to know",
@@ -106,7 +134,7 @@ const en: Dictionary = {
     },
     pricing: {
       eyebrow: "Rate card",
-      columns: ["Service", "Adult", "Teen · 13-18", "Child", "Under 6"],
+      columns: ["Service", "Adult", "13-18", "6-12", "Under 6"],
       rows: [
         {
           name: "Half board",

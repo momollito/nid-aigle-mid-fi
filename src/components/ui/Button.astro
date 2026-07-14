@@ -4,22 +4,28 @@
  *  - href fourni     → rendu comme <a>
  *  - href absent     → rendu comme <button>
  *  - variant primary → fond encre, texte papier
+ *  - size lg         → version agrandie (CTA principal)
+ *  - target _blank   → ajoute rel="noopener noreferrer" (liens externes)
  */
 interface Props {
   href?: string;
   variant?: "default" | "primary";
+  size?: "default" | "lg";
+  target?: string;
   class?: string;
 }
 
-const { href, variant = "default", class: className = "" } = Astro.props;
+const { href, variant = "default", size = "default", target, class: className = "" } = Astro.props;
 
 const base =
-  "inline-block cursor-pointer rounded-full border border-ink px-5 py-3 font-mono text-[10px] uppercase tracking-[0.08em] no-underline";
+  "inline-block cursor-pointer rounded-full border border-ink font-mono uppercase tracking-[0.08em] no-underline";
+const sizing = size === "lg" ? "px-8 py-4 text-[11px]" : "px-5 py-3 text-[10px]";
 const skin = variant === "primary" ? "bg-ink text-paper" : "bg-paper text-ink";
 
 const Tag = href ? "a" : "button";
+const rel = target === "_blank" ? "noopener noreferrer" : undefined;
 ---
 
-<Tag href={href} class:list={[base, skin, className]}>
+<Tag href={href} target={target} rel={rel} class:list={[base, sizing, skin, className]}>
   <slot />
 </Tag>
