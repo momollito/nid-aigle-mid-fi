@@ -6,18 +6,18 @@ const { geography } = useTranslations(getLangFromUrl(Astro.url)).about;
 ---
 
 <section
-  class="grid grid-cols-[1.4fr_1fr] items-center gap-[60px] bg-[#ecebe4] px-[8%] py-[90px]"
+  class="grid grid-cols-1 items-start gap-10 bg-[#ecebe4] px-6 py-16 md:px-[8%] md:py-24 lg:grid-cols-[1.4fr_1fr] lg:items-center lg:gap-15 lg:py-22.5"
 >
   <div>
     <div class="eyebrow">{geography.eyebrow}</div>
-    <h2 class="serif mb-[22px] mt-[14px] text-[54px]" set:html={geography.title} />
-    <p class="max-w-[540px] font-sans text-[15px] leading-[1.75] text-ink">{geography.body}</p>
+    <h2 class="serif mb-5.5 mt-3.5 text-h2" set:html={geography.title} />
+    <p class="max-w-135 font-sans text-[15px] leading-[1.75] text-ink">{geography.body}</p>
 
-    <div class="mt-9 grid max-w-[460px] grid-cols-2 gap-5">
+    <div class="mt-9 grid max-w-115 grid-cols-2 gap-5">
       {
         geography.stats.map((s) => (
           <div class="border-t border-line-strong pt-3">
-            <div class="serif text-[32px] italic">{s.value}</div>
+            <div class="serif text-stat italic">{s.value}</div>
             <div class="eyebrow">{s.label}</div>
           </div>
         ))
@@ -25,5 +25,8 @@ const { geography } = useTranslations(getLangFromUrl(Astro.url)).about;
     </div>
   </div>
 
-  <Placeholder label="Plan altitude · Saint-Gervais → Mont-Blanc" class="h-[380px]" />
+  <Placeholder
+    label="Plan altitude · Saint-Gervais → Mont-Blanc"
+    class="aspect-4/3 w-full lg:aspect-auto lg:h-95"
+  />
 </section>

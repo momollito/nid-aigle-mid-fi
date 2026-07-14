@@ -5,10 +5,12 @@ import Lines from "../ui/Lines.astro";
 const { header } = useTranslations(getLangFromUrl(Astro.url)).tarifs;
 ---
 
-<section class="border-b border-line-strong px-[8%] pb-[50px] pt-[130px]">
+<section
+  class="border-b border-line-strong px-6 pb-12 pt-28 md:px-[8%] lg:pb-12.5 lg:pt-32.5"
+>
   <div class="eyebrow">{header.eyebrow}</div>
-  <h1 class="serif mt-[14px] text-[84px]" set:html={header.title} />
-  <div class="mt-6 max-w-[540px]">
+  <h1 class="serif mt-3.5 text-title" set:html={header.title} />
+  <div class="mt-6 max-w-135">
     <Lines count={2} widths={["100%", "72%"]} />
   </div>
 </section>

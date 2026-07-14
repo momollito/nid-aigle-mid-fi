@@ -14,7 +14,7 @@ interface Props {
 const { href, variant = "default", class: className = "" } = Astro.props;
 
 const base =
-  "inline-block cursor-pointer rounded-full border border-ink px-5 py-[11px] font-mono text-[10px] uppercase tracking-[0.08em] no-underline";
+  "inline-block cursor-pointer rounded-full border border-ink px-5 py-3 font-mono text-[10px] uppercase tracking-[0.08em] no-underline";
 const skin = variant === "primary" ? "bg-ink text-paper" : "bg-paper text-ink";
 
 const Tag = href ? "a" : "button";

@@ -4,7 +4,7 @@ import { getLangFromUrl, useTranslations } from "../../i18n";
 const { header } = useTranslations(getLangFromUrl(Astro.url)).contact;
 ---
 
-<section class="px-[8%] pb-[40px] pt-[130px]">
+<section class="px-6 pb-10 pt-28 md:px-[8%] lg:pb-10 lg:pt-32.5">
   <div class="eyebrow">{header.eyebrow}</div>
-  <h1 class="serif mt-[14px] text-[84px]" set:html={header.title} />
+  <h1 class="serif mt-3.5 text-title" set:html={header.title} />
 </section>

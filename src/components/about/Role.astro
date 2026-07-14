@@ -4,16 +4,16 @@ import { getLangFromUrl, useTranslations } from "../../i18n";
 const { role } = useTranslations(getLangFromUrl(Astro.url)).about;
 ---
 
-<section class="px-[8%] pb-[130px] pt-[110px]">
+<section class="px-6 pb-16 pt-16 md:px-[8%] lg:pb-32.5 lg:pt-27.5">
   <div class="eyebrow">{role.eyebrow}</div>
-  <h2 class="serif mb-8 mt-[14px] max-w-[900px] text-[54px]" set:html={role.title} />
+  <h2 class="serif mb-8 mt-3.5 max-w-225 text-h2" set:html={role.title} />
 
-  <div class="grid grid-cols-3 gap-[30px]">
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-7.5">
     {
       role.items.map((item) => (
-        <div class="border-t border-line-strong pt-[18px]">
+        <div class="border-t border-line-strong pt-4.5">
           <div class="eyebrow">{item.kicker}</div>
-          <h3 class="serif mb-3 mt-2 text-[30px]">{item.title}</h3>
+          <h3 class="serif mb-3 mt-2 text-h3">{item.title}</h3>
           <p class="font-sans text-[14px] leading-[1.7] text-muted">{item.text}</p>
         </div>
       ))

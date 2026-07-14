@@ -4,15 +4,17 @@ import { getLangFromUrl, useTranslations } from "../../i18n";
 const { pricing } = useTranslations(getLangFromUrl(Astro.url)).tarifs;
 ---
 
-<section class="px-[8%] pb-[110px] pt-[50px]">
-  <div class="grid grid-cols-3 gap-6">
+<section class="px-6 pb-16 pt-12 md:px-[8%] lg:pb-27.5 lg:pt-12.5">
+  <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
     {
       pricing.notes.map((note) => (
-        <div class="border-t border-line-strong pt-[18px]">
-          <div class="eyebrow">{pricing.notesHeading} · {note.ref}</div>
-          <h4 class="serif mb-[6px] mt-2 text-[22px]">{note.title}</h4>
-          {note.detail && <div class="mb-[10px] font-sans text-[13px] text-muted">{note.detail}</div>}
-          <div class="serif text-[26px]">{note.price}</div>
+        <div class="border-t border-line-strong pt-4.5">
+          <div class="eyebrow">
+            {pricing.notesHeading} · {note.ref}
+          </div>
+          <h4 class="serif mb-1.5 mt-2 text-[22px]">{note.title}</h4>
+          {note.detail && <div class="mb-2.5 font-sans text-[13px] text-muted">{note.detail}</div>}
+          <div class="serif text-h4">{note.price}</div>
         </div>
       ))
     }

@@ -2,13 +2,15 @@
 import Placeholder from "../ui/Placeholder.astro";
 ---
 
-<section class="px-[8%] pb-[100px]">
-  <div class="grid h-[440px] grid-cols-[1.4fr_1fr_1fr] gap-3">
-    <Placeholder label="Vue extérieure · façade" class="h-full" />
-    <div class="grid grid-rows-2 gap-3">
-      <Placeholder label="Salle commune" class="h-full" />
-      <Placeholder label="Dortoir" class="h-full" />
+<section class="px-6 pb-16 md:px-[8%] lg:pb-25">
+  <div class="grid grid-cols-1 gap-3 lg:h-110 lg:grid-cols-[1.4fr_1fr_1fr]">
+    <Placeholder label="Vue extérieure · façade" class="aspect-16/10 lg:aspect-auto lg:h-full" />
+
+    <div class="grid grid-cols-1 gap-3 lg:grid-rows-2">
+      <Placeholder label="Salle commune" class="aspect-16/10 lg:aspect-auto lg:h-full" />
+      <Placeholder label="Dortoir" class="aspect-16/10 lg:aspect-auto lg:h-full" />
     </div>
-    <Placeholder label="Glacier au crépuscule" dark class="h-full" />
+
+    <Placeholder label="Glacier au crépuscule" dark class="aspect-16/10 lg:aspect-auto lg:h-full" />
   </div>
 </section>
