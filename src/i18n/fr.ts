@@ -165,8 +165,8 @@ const fr = {
       title: "Comment <em>nous trouver</em>.", // HTML
     },
     map: {
-      chip: "Carte indicative · Aperçu",
-      tooltip: "Refuge du Nid d'Aigle",
+      alt: "Vue aérienne 3D de la vallée de Saint-Gervais jusqu'au Refuge du Nid d'Aigle",
+      attribution: "© Google Earth",
     },
     access: {
       eyebrow: "Accès",

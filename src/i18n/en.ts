@@ -166,8 +166,8 @@ const en: Dictionary = {
       title: "How to <em>find us</em>.", // HTML
     },
     map: {
-      chip: "Indicative map · Preview",
-      tooltip: "Refuge du Nid d'Aigle",
+      alt: "3D aerial view from the Saint-Gervais valley up to the Refuge du Nid d'Aigle",
+      attribution: "© Google Earth",
     },
     access: {
       eyebrow: "Access",
