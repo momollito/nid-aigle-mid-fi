@@ -32,14 +32,6 @@ const fr = {
     },
   },
 
-  // Slugs d'URL par page (voir localizedPath dans index.ts)
-  routes: {
-    home: "",
-    tarifs: "tarifs",
-    about: "a-propos",
-    contact: "contact",
-  },
-
   nav: {
     home: "Accueil",
     tarifs: "Tarifs & Réservation",
@@ -75,13 +67,13 @@ const fr = {
       ],
     },
     intro: {
-      eyebrow: "01 / Le refuge",
+      eyebrow: "Le refuge",
       title: "Un point d'étape. <em>Une destination.</em>", // HTML
       body: "Le Nid d'Aigle est le point de rendez-vous entre deux mondes de la montagne : les randonneurs venus à la journée profiter d'un repas et de la vue sur les glaciers, et les alpinistes qui montent vers le sommet du Mont-Blanc ou en redescendent. À l'aller comme au retour, ce n'est pas qu'un passage — c'est une destination à part entière.",
       link: "Lire l'histoire →",
     },
     cards: {
-      eyebrow: "02 / Préparer votre venue",
+      eyebrow: "Préparer votre venue",
       title: "Trois choses à savoir avant de monter.",
       more: "En savoir plus →",
       items: [
@@ -109,7 +101,7 @@ const fr = {
 
   tarifs: {
     header: {
-      eyebrow: "02 / Tarifs & Réservation · Saison 2026",
+      eyebrow: "Tarifs & Réservation · Saison 2026",
       title: "Tarifs &amp;<br><em>réservation</em>.", // HTML
     },
     booking: {
@@ -161,7 +153,7 @@ const fr = {
 
   contact: {
     header: {
-      eyebrow: "04 / Contact & accès",
+      eyebrow: "Contact & accès",
       title: "Comment <em>nous trouver</em>.", // HTML
     },
     map: {
@@ -200,7 +192,7 @@ const fr = {
 
   about: {
     header: {
-      eyebrow: "05 / À propos",
+      eyebrow: "À propos",
       title: "Cent ans <em>à veiller</em><br>sur les passages.", // HTML
     },
     history: {

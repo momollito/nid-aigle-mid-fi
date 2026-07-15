@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations, localizedPath, type RouteKey } from "../i18n";
+import LangSwitcher from "./LangSwitcher.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -15,7 +16,7 @@ const isActive = (key: RouteKey) => {
 
 <header class="absolute inset-x-0 top-5.5 z-30 flex justify-center px-6">
   <nav
-    class="flex items-center gap-4 rounded-full border border-line-strong bg-paper/95 py-2 pl-5.5 pr-2 shadow-[0_6px_20px_-10px_rgba(0,0,0,0.18)] backdrop-blur-sm lg:gap-6"
+    class="flex items-center gap-4 rounded-full border border-line-strong bg-paper/95 py-2 pl-5.5 pr-2 shadow-[0_6px_20px_-10px_rgba(0,0,0,0.18)] backdrop-blur-sm lg:gap-6 lg:pr-5.5"
   >
     <a
       href={localizedPath(lang, "home")}
@@ -46,6 +47,10 @@ const isActive = (key: RouteKey) => {
       >
         {t.nav.contact}
       </a>
+      <div class="-ml-2.5 flex items-center gap-3.5">
+        <span class="h-4 w-px bg-line-strong"></span>
+        <LangSwitcher />
+      </div>
     </div>
 
     <!-- Menu déroulant (mobile) — élément <details> natif, sans JS -->
@@ -102,6 +107,9 @@ const isActive = (key: RouteKey) => {
         >
           {t.nav.contact}
         </a>
+        <div class="mt-2 flex justify-center border-t border-line pt-3">
+          <LangSwitcher />
+        </div>
       </div>
     </details>
   </nav>

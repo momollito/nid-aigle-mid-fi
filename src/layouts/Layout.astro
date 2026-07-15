@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
-import { getLangFromUrl } from "../i18n";
+import { getLangFromUrl, switchLangPath } from "../i18n";
 
 interface Props {
   title: string;
@@ -11,6 +11,14 @@ interface Props {
 
 const { title, description = "" } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
+
+// Relation entre les versions FR/EN d'une même page (SEO).
+// Chemins relatifs — passe-les en absolus le jour où `site` est défini dans astro.config.
+const alternates = [
+  { hreflang: "fr", href: switchLangPath(Astro.url, "fr") },
+  { hreflang: "en", href: switchLangPath(Astro.url, "en") },
+  { hreflang: "x-default", href: switchLangPath(Astro.url, "fr") },
+];
 ---
 
 <!doctype html>
@@ -21,6 +29,8 @@ const lang = getLangFromUrl(Astro.url);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+
+    {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

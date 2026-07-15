@@ -5,7 +5,11 @@ import History from "../../components/about/History.astro";
 import Timeline from "../../components/about/Timeline.astro";
 import Geography from "../../components/about/Geography.astro";
 import Role from "../../components/about/Role.astro";
-import { getLangFromUrl, useTranslations } from "../../i18n";
+import { dictionaries, useTranslations, getLangFromUrl } from "../../i18n";
+
+export function getStaticPaths() {
+  return Object.keys(dictionaries).map((lang) => ({ params: { lang } }));
+}
 
 const t = useTranslations(getLangFromUrl(Astro.url));
 ---

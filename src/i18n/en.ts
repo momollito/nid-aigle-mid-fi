@@ -29,13 +29,6 @@ const en: Dictionary = {
     },
   },
 
-  routes: {
-    home: "",
-    tarifs: "rates",
-    about: "about",
-    contact: "contact",
-  },
-
   nav: {
     home: "Home",
     tarifs: "Rates & Booking",
@@ -71,13 +64,13 @@ const en: Dictionary = {
       ],
     },
     intro: {
-      eyebrow: "01 / The refuge",
+      eyebrow: "The refuge",
       title: "A waypoint. <em>A destination.</em>", // HTML
       body: "The Nid d'Aigle is the meeting point between two mountain worlds: day hikers coming up to enjoy a meal and the view over the glaciers, and mountaineers climbing towards the summit of Mont Blanc or making their way back down. On the way up as on the way down, it is not merely a passage — it is a destination in its own right.",
       link: "Read the story →",
     },
     cards: {
-      eyebrow: "02 / Plan your visit",
+      eyebrow: "Plan your visit",
       title: "Three things to know before heading up.",
       more: "Learn more →",
       items: [
@@ -105,7 +98,7 @@ const en: Dictionary = {
 
   tarifs: {
     header: {
-      eyebrow: "02 / Rates & Booking · 2026 Season",
+      eyebrow: "Rates & Booking · 2026 Season",
       title: "Rates &amp;<br><em>booking</em>.", // HTML
     },
     booking: {
@@ -162,7 +155,7 @@ const en: Dictionary = {
 
   contact: {
     header: {
-      eyebrow: "04 / Contact & access",
+      eyebrow: "Contact & access",
       title: "How to <em>find us</em>.", // HTML
     },
     map: {
@@ -201,7 +194,7 @@ const en: Dictionary = {
 
   about: {
     header: {
-      eyebrow: "05 / About",
+      eyebrow: "About",
       title: "A century <em>watching over</em><br>the passes.", // HTML
     },
     history: {

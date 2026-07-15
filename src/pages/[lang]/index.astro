@@ -4,7 +4,11 @@ import Hero from "../../components/home/Hero.astro";
 import Intro from "../../components/home/Intro.astro";
 import Triptych from "../../components/home/Triptych.astro";
 import Cards from "../../components/home/Cards.astro";
-import { getLangFromUrl, useTranslations } from "../../i18n";
+import { dictionaries, useTranslations, getLangFromUrl } from "../../i18n";
+
+export function getStaticPaths() {
+  return Object.keys(dictionaries).map((lang) => ({ params: { lang } }));
+}
 
 const t = useTranslations(getLangFromUrl(Astro.url));
 ---
