@@ -4,7 +4,11 @@ import TarifsHeader from "../../components/tarifs/TarifsHeader.astro";
 import Reservation from "../../components/tarifs/Reservation.astro";
 import PricingTable from "../../components/tarifs/PricingTable.astro";
 import PricingNotes from "../../components/tarifs/PricingNotes.astro";
-import { getLangFromUrl, useTranslations } from "../../i18n";
+import { dictionaries, useTranslations, getLangFromUrl } from "../../i18n";
+
+export function getStaticPaths() {
+  return Object.keys(dictionaries).map((lang) => ({ params: { lang } }));
+}
 
 const t = useTranslations(getLangFromUrl(Astro.url));
 ---

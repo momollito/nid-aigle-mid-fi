@@ -1,6 +1,5 @@
 ---
 import { getLangFromUrl, useTranslations, localizedPath, type RouteKey } from "../i18n";
-import Lines from "./ui/Lines.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -36,12 +35,26 @@ const navLinks: { key: RouteKey; label: string }[] = [
 
   <div>
     <div class="eyebrow mb-3.5">{t.footer.contactHeading}</div>
-    <Lines count={3} widths={["80%", "60%", "70%"]} h={6} />
+    <div class="flex flex-col gap-2">
+      {
+        t.footer.contactLines.map((line) =>
+          "href" in line ? (
+            <a href={line.href} class="text-[12px] text-ink no-underline">
+              {line.text}
+            </a>
+          ) : (
+            <span class="text-[12px] text-ink">{line.text}</span>
+          ),
+        )
+      }
+    </div>
   </div>
 
   <div>
     <div class="eyebrow mb-3.5">{t.footer.seasonHeading}</div>
-    <Lines count={2} widths={["80%", "60%", "70%"]} h={6} />
+    <div class="flex flex-col gap-2">
+      {t.footer.seasonLines.map((line) => <span class="text-[12px] text-ink">{line}</span>)}
+    </div>
   </div>
 
   <div class="col-span-full mt-2.5 border-t border-line pt-4.5">

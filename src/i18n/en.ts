@@ -29,13 +29,6 @@ const en: Dictionary = {
     },
   },
 
-  routes: {
-    home: "",
-    tarifs: "rates",
-    about: "about",
-    contact: "contact",
-  },
-
   nav: {
     home: "Home",
     tarifs: "Rates & Booking",
@@ -48,7 +41,13 @@ const en: Dictionary = {
     tagline: "2,412 m · Mont Blanc Massif",
     navHeading: "Navigation",
     contactHeading: "Contact",
+    contactLines: [
+      { text: "04 50 58 05 78", href: "tel:+33450580578" },
+      { text: "refuge@nidaigle.com", href: "mailto:refuge@nidaigle.com" },
+      { text: "Saint-Gervais-les-Bains" },
+    ],
     seasonHeading: "Season",
+    seasonLines: ["Open June to September", "Booking recommended"],
     copyright: "© 2026 — Bak Studio",
   },
 
@@ -65,32 +64,54 @@ const en: Dictionary = {
       ],
     },
     intro: {
-      eyebrow: "01 / The refuge",
+      eyebrow: "The refuge",
       title: "A waypoint. <em>A destination.</em>", // HTML
       body: "The Nid d'Aigle is the meeting point between two mountain worlds: day hikers coming up to enjoy a meal and the view over the glaciers, and mountaineers climbing towards the summit of Mont Blanc or making their way back down. On the way up as on the way down, it is not merely a passage — it is a destination in its own right.",
       link: "Read the story →",
     },
     cards: {
-      eyebrow: "02 / Plan your visit",
+      eyebrow: "Plan your visit",
       title: "Three things to know before heading up.",
       more: "Learn more →",
       items: [
-        { n: "01", title: "Rates & Booking", target: "tarifs" },
-        { n: "02", title: "Access", target: "contact" },
-        { n: "03", title: "About", target: "about" },
+        {
+          n: "01",
+          title: "Rates & Booking",
+          target: "tarifs",
+          desc: "Half board, overnight-only or packed lunch. See the 2026 rates and book your bed online.",
+        },
+        {
+          n: "02",
+          title: "Access",
+          target: "contact",
+          desc: "By the Tramway du Mont-Blanc or on foot from Bionnassay. Two paths to the refuge, with no road access.",
+        },
+        {
+          n: "03",
+          title: "About",
+          target: "about",
+          desc: "A refuge on the normal route up Mont Blanc since 1933. Its history, its location, its role between valley and summit.",
+        },
       ],
     },
   },
 
   tarifs: {
     header: {
-      eyebrow: "02 / Rates & Booking · 2026 Season",
+      eyebrow: "Rates & Booking · 2026 Season",
       title: "Rates &amp;<br><em>booking</em>.", // HTML
     },
     booking: {
       eyebrow: "Online booking",
       title: "Book your <em>overnight stay</em>.", // HTML
-      embedLabel: "Booking platform · embedded",
+      intro:
+        "Booking is handled online, on the Pays du Mont-Blanc refuge reservation platform. Select your dates and type of bed, then confirm your stay in just a few minutes.",
+      cta: "Book online →",
+      ctaHref:
+        "https://www.monrefugepaysdumontblanc.com/uk/il4-refuge_i136101-refuge-du-nid-d-aigle.aspx",
+      // HTML — contains a mailto link
+      fallback:
+        "If no places are available for online booking, email us at <a href='mailto:refuge@nidaigle.com'>refuge@nidaigle.com</a>.",
     },
     practical: {
       eyebrow: "Good to know",
@@ -106,7 +127,7 @@ const en: Dictionary = {
     },
     pricing: {
       eyebrow: "Rate card",
-      columns: ["Service", "Adult", "Teen · 13-18", "Child", "Under 6"],
+      columns: ["Service", "Adult", "13-18", "6-12", "Under 6"],
       rows: [
         {
           name: "Half board",
@@ -134,12 +155,12 @@ const en: Dictionary = {
 
   contact: {
     header: {
-      eyebrow: "04 / Contact & access",
+      eyebrow: "Contact & access",
       title: "How to <em>find us</em>.", // HTML
     },
     map: {
-      chip: "Indicative map · Preview",
-      tooltip: "Refuge du Nid d'Aigle",
+      alt: "3D aerial view from the Saint-Gervais valley up to the Refuge du Nid d'Aigle",
+      attribution: "© Google Earth",
     },
     access: {
       eyebrow: "Access",
@@ -173,7 +194,7 @@ const en: Dictionary = {
 
   about: {
     header: {
-      eyebrow: "05 / About",
+      eyebrow: "About",
       title: "A century <em>watching over</em><br>the passes.", // HTML
     },
     history: {

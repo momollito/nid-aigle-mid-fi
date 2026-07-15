@@ -3,7 +3,11 @@ import Layout from "../../layouts/Layout.astro";
 import ContactHeader from "../../components/contact/ContactHeader.astro";
 import AccessMap from "../../components/contact/AccessMap.astro";
 import AccessDetails from "../../components/contact/AccessDetails.astro";
-import { getLangFromUrl, useTranslations } from "../../i18n";
+import { dictionaries, useTranslations, getLangFromUrl } from "../../i18n";
+
+export function getStaticPaths() {
+  return Object.keys(dictionaries).map((lang) => ({ params: { lang } }));
+}
 
 const t = useTranslations(getLangFromUrl(Astro.url));
 ---

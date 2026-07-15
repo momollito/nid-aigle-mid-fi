@@ -32,14 +32,6 @@ const fr = {
     },
   },
 
-  // Slugs d'URL par page (voir localizedPath dans index.ts)
-  routes: {
-    home: "",
-    tarifs: "tarifs",
-    about: "a-propos",
-    contact: "contact",
-  },
-
   nav: {
     home: "Accueil",
     tarifs: "Tarifs & Réservation",
@@ -52,7 +44,13 @@ const fr = {
     tagline: "2 412 m · Massif du Mont-Blanc",
     navHeading: "Navigation",
     contactHeading: "Contact",
+    contactLines: [
+      { text: "04 50 58 05 78", href: "tel:+33450580578" },
+      { text: "refuge@nidaigle.com", href: "mailto:refuge@nidaigle.com" },
+      { text: "Saint-Gervais-les-Bains" },
+    ],
     seasonHeading: "Saison",
+    seasonLines: ["Ouvert de juin à septembre", "Réservation conseillée"],
     copyright: "© 2026 — Bak Studio",
   },
 
@@ -69,32 +67,54 @@ const fr = {
       ],
     },
     intro: {
-      eyebrow: "01 / Le refuge",
+      eyebrow: "Le refuge",
       title: "Un point d'étape. <em>Une destination.</em>", // HTML
       body: "Le Nid d'Aigle est le point de rendez-vous entre deux mondes de la montagne : les randonneurs venus à la journée profiter d'un repas et de la vue sur les glaciers, et les alpinistes qui montent vers le sommet du Mont-Blanc ou en redescendent. À l'aller comme au retour, ce n'est pas qu'un passage — c'est une destination à part entière.",
       link: "Lire l'histoire →",
     },
     cards: {
-      eyebrow: "02 / Préparer votre venue",
+      eyebrow: "Préparer votre venue",
       title: "Trois choses à savoir avant de monter.",
       more: "En savoir plus →",
       items: [
-        { n: "01", title: "Tarifs & Réservation", target: "tarifs" },
-        { n: "02", title: "Accès", target: "contact" },
-        { n: "03", title: "À propos", target: "about" },
+        {
+          n: "01",
+          title: "Tarifs & Réservation",
+          target: "tarifs",
+          desc: "Demi-pension, nuitée simple ou pique-nique. Consultez la grille 2026 et réservez votre couchage en ligne.",
+        },
+        {
+          n: "02",
+          title: "Accès",
+          target: "contact",
+          desc: "Par le Tramway du Mont-Blanc ou à pied depuis Bionnassay. Deux chemins jusqu'au refuge, sans route d'accès.",
+        },
+        {
+          n: "03",
+          title: "À propos",
+          target: "about",
+          desc: "Un refuge sur la voie normale du Mont-Blanc depuis 1933. Son histoire, sa situation, son rôle entre vallée et sommet.",
+        },
       ],
     },
   },
 
   tarifs: {
     header: {
-      eyebrow: "02 / Tarifs & Réservation · Saison 2026",
+      eyebrow: "Tarifs & Réservation · Saison 2026",
       title: "Tarifs &amp;<br><em>réservation</em>.", // HTML
     },
     booking: {
       eyebrow: "Réservation en ligne",
       title: "Réserver votre <em>nuitée</em>.", // HTML
-      embedLabel: "Plateforme de réservation · intégrée",
+      intro:
+        "La réservation s'effectue en ligne, sur la plateforme de réservation des refuges du Pays du Mont-Blanc. Sélectionnez vos dates et votre type de couchage, puis confirmez votre nuitée en quelques minutes.",
+      cta: "Réserver en ligne →",
+      ctaHref:
+        "https://www.monrefugepaysdumontblanc.com/fr/il4-refuge_i136101-refuge-du-nid-d-aigle.aspx",
+      // HTML — contient un lien mailto
+      fallback:
+        "S'il n'y a plus de places disponibles à la réservation en ligne, écrivez-nous à <a href='mailto:refuge@nidaigle.com'>refuge@nidaigle.com</a>.",
     },
     practical: {
       eyebrow: "À savoir",
@@ -110,7 +130,7 @@ const fr = {
     },
     pricing: {
       eyebrow: "Grille tarifaire",
-      columns: ["Prestation", "Adulte", "Ado · 13-18 ans", "Enfant", "- de 6 ans"],
+      columns: ["Prestation", "Adulte", "13-18 ans", "6-12 ans", "- de 6 ans"],
       rows: [
         {
           name: "Demi-pension",
@@ -133,12 +153,12 @@ const fr = {
 
   contact: {
     header: {
-      eyebrow: "04 / Contact & accès",
+      eyebrow: "Contact & accès",
       title: "Comment <em>nous trouver</em>.", // HTML
     },
     map: {
-      chip: "Carte indicative · Aperçu",
-      tooltip: "Refuge du Nid d'Aigle",
+      alt: "Vue aérienne 3D de la vallée de Saint-Gervais jusqu'au Refuge du Nid d'Aigle",
+      attribution: "© Google Earth",
     },
     access: {
       eyebrow: "Accès",
@@ -172,7 +192,7 @@ const fr = {
 
   about: {
     header: {
-      eyebrow: "05 / À propos",
+      eyebrow: "À propos",
       title: "Cent ans <em>à veiller</em><br>sur les passages.", // HTML
     },
     history: {

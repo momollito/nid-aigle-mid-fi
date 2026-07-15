@@ -1,0 +1,24 @@
+---
+import { getLangFromUrl, switchLangPath, languages, type Lang } from "../i18n";
+
+const current = getLangFromUrl(Astro.url);
+const langs = Object.keys(languages) as Lang[];
+---
+
+<div class="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em]">
+  {
+    langs.map((l, i) => (
+      <>
+        {i > 0 && <span class="text-line-strong">·</span>}
+        <a
+          href={switchLangPath(Astro.url, l)}
+          hreflang={l}
+          aria-current={l === current ? "true" : undefined}
+          class:list={["no-underline", l === current ? "text-ink" : "text-muted"]}
+        >
+          {l}
+        </a>
+      </>
+    ))
+  }
+</div>
