@@ -46,8 +46,7 @@ const en: Dictionary = {
       { text: "refuge@nidaigle.com", href: "mailto:refuge@nidaigle.com" },
       { text: "Saint-Gervais-les-Bains" },
     ],
-    seasonHeading: "Season",
-    seasonLines: ["Open June to September", "Booking recommended"],
+    deptLogoLabel: "Haute-Savoie Department",
     copyright: "© 2026 — Bak Studio",
   },
 
@@ -69,6 +68,13 @@ const en: Dictionary = {
       title: "A waypoint. <em>A destination.</em>", // HTML
       body: "The Nid d'Aigle is the meeting point between two mountain worlds: day hikers coming up to enjoy a meal and the view over the glaciers, and mountaineers climbing towards the summit of Mont Blanc or making their way back down. On the way up as on the way down, it is not merely a passage — it is a destination in its own right.",
       link: "Read the story →",
+    },
+    triptych: {
+      facadeAlt:
+        "The Refuge du Nid d'Aigle and its terrace, set against the slope above the Tramway du Mont-Blanc terminus",
+      commonRoomAlt:
+        "The refuge's common room: wooden tables and benches, windows opening onto the valley",
+      dormAlt: "One of the refuge's dormitories, with wooden bunk beds and bedding laid out",
     },
     cards: {
       eyebrow: "Plan your visit",
@@ -197,6 +203,12 @@ const en: Dictionary = {
     header: {
       eyebrow: "About",
       title: "A century <em>watching over</em><br>the passes.", // HTML
+      tramAlt:
+        "Archive photograph: two Tramway du Mont-Blanc railcars stopped on the rocky slope, travellers standing along the track",
+      tunnelAlt:
+        "Vintage postcard: the terminus of the Mont Blanc railway, the tunnel opening onto the glacier and the Aiguille de Bionnassay",
+      terminusAlt:
+        "Vintage postcard: walkers on the path at the terminus of the Mont Blanc railway, below the Bionnassay glacier and peak",
     },
     history: {
       eyebrow: "History",

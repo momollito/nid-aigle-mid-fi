@@ -1,14 +1,50 @@
 ---
+import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../../i18n";
 import Placeholder from "../ui/Placeholder.astro";
+import facadeImg from "../../assets/home/facade.jpg";
+import salleCommuneImg from "../../assets/home/salle-commune.jpg";
+import dortoirImg from "../../assets/home/dortoir.jpg";
+
+const { triptych } = useTranslations(getLangFromUrl(Astro.url)).home;
+
+/**
+ * Vignette : remplit sa cellule, cadrage géré par object-cover.
+ * `min-h-0` est indispensable — sans lui le `min-height:auto` des éléments de
+ * grille laisse la hauteur intrinsèque des photos déborder le `lg:h-110`.
+ */
+const tile =
+  "aspect-16/10 min-h-0 w-full rounded-[4px] border border-line-strong object-cover lg:aspect-auto lg:h-full";
 ---
 
 <section class="px-6 pb-16 md:px-[8%] lg:pb-25">
   <div class="grid grid-cols-1 gap-3 lg:h-110 lg:grid-cols-[1.4fr_1fr_1fr]">
-    <Placeholder label="Vue extérieure · façade" class="aspect-16/10 lg:aspect-auto lg:h-full" />
+    <Image
+      src={facadeImg}
+      alt={triptych.facadeAlt}
+      width={1400}
+      widths={[600, 900, 1400]}
+      sizes="(min-width: 1024px) 34vw, (min-width: 768px) 84vw, 90vw"
+      class={tile}
+    />
 
-    <div class="grid grid-cols-1 gap-3 lg:grid-rows-2">
-      <Placeholder label="Salle commune" class="aspect-16/10 lg:aspect-auto lg:h-full" />
-      <Placeholder label="Dortoir" class="aspect-16/10 lg:aspect-auto lg:h-full" />
+    <div class="grid min-h-0 grid-cols-1 gap-3 lg:grid-rows-2">
+      <Image
+        src={salleCommuneImg}
+        alt={triptych.commonRoomAlt}
+        width={1000}
+        widths={[400, 700, 1000]}
+        sizes="(min-width: 1024px) 24vw, (min-width: 768px) 84vw, 90vw"
+        class={tile}
+      />
+      <Image
+        src={dortoirImg}
+        alt={triptych.dormAlt}
+        width={1000}
+        widths={[400, 700, 1000]}
+        sizes="(min-width: 1024px) 24vw, (min-width: 768px) 84vw, 90vw"
+        class={tile}
+      />
     </div>
 
     <Placeholder label="Glacier au crépuscule" dark class="aspect-16/10 lg:aspect-auto lg:h-full" />

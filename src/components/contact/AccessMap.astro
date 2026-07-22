@@ -1,19 +1,20 @@
 ---
+import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../../i18n";
 import Chip from "../ui/Chip.astro";
+import mapImg from "../../assets/contact/nid-aigle-3d.png";
 
 const { map } = useTranslations(getLangFromUrl(Astro.url)).contact;
 ---
 
 <section class="px-6 md:px-[8%]">
   <div class="relative overflow-hidden rounded-sm border border-line-strong">
-    <img
-      src="/access/nid-aigle-3d.png"
+    <Image
+      src={mapImg}
       alt={map.alt}
-      width="2584"
-      height="982"
-      loading="lazy"
-      decoding="async"
+      width={1920}
+      widths={[768, 1280, 1920, 2584]}
+      sizes="(min-width: 768px) 84vw, 90vw"
       class="block h-auto w-full"
     />
     <Chip class="absolute bottom-4 left-4">{map.attribution}</Chip>

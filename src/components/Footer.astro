@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations, localizedPath, type RouteKey } from "../i18n";
+import HauteSavoieLogo from "../assets/footer/haute-savoie.svg";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -51,10 +52,16 @@ const navLinks: { key: RouteKey; label: string }[] = [
   </div>
 
   <div>
-    <div class="eyebrow mb-3.5">{t.footer.seasonHeading}</div>
-    <div class="flex flex-col gap-2">
-      {t.footer.seasonLines.map((line) => <span class="text-[12px] text-ink">{line}</span>)}
-    </div>
+    <!--
+      Logo institutionnel : rendu en SVG inline par Astro (pas de requête
+      supplémentaire, net à toute taille). Hauteur fixe, largeur déduite du
+      viewBox 800×534. `role`/`aria-label` lui donnent son nom accessible.
+    -->
+    <HauteSavoieLogo
+      role="img"
+      aria-label={t.footer.deptLogoLabel}
+      class="h-24 w-auto"
+    />
   </div>
 
   <div class="col-span-full mt-2.5 border-t border-line pt-4.5">

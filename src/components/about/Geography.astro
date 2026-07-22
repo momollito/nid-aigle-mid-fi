@@ -29,10 +29,9 @@ const { geography } = useTranslations(getLangFromUrl(Astro.url)).about;
   <Image
     src={tramwayImg}
     alt={geography.imageAlt}
+    width={1400}
     widths={[600, 900, 1400]}
-    sizes="(min-width: 1024px) 40vw, 92vw"
-    loading="lazy"
-    decoding="async"
+    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 84vw, 90vw"
     class="aspect-4/3 w-full rounded-sm border border-line-strong object-cover lg:aspect-auto lg:h-110"
   />
 </section>

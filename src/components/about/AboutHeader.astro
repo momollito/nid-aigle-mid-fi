@@ -1,8 +1,14 @@
 ---
+import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../../i18n";
-import Placeholder from "../ui/Placeholder.astro";
+import tramImg from "../../assets/about/histoire-1.jpg";
+import tunnelImg from "../../assets/about/histoire-2.jpg";
+import terminusImg from "../../assets/about/histoire-3.jpg";
 
 const { header } = useTranslations(getLangFromUrl(Astro.url)).about;
+
+/** Cadre commun aux trois clichés d'archive. */
+const plate = "h-auto w-full rounded-sm border border-line-strong";
 ---
 
 <section class="px-6 pb-8 pt-28 md:px-[8%] lg:pb-7.5 lg:pt-32.5">
@@ -11,8 +17,34 @@ const { header } = useTranslations(getLangFromUrl(Astro.url)).about;
 </section>
 
 <section class="px-6 pt-8 md:px-[8%] lg:pt-7.5">
-  <Placeholder
-    label="Photo d'archive · construction, 1933"
-    class="aspect-16/9 w-full lg:aspect-auto lg:h-110"
-  />
+
+  <div class="grid grid-cols-[2.6568fr_0.9614fr_1fr] gap-3">
+    <Image
+      src={tramImg}
+      alt={header.tramAlt}
+      width={998}
+      widths={[300, 600, 998]}
+      sizes="48vw"
+      loading="eager"
+      class={plate}
+    />
+    <Image
+      src={tunnelImg}
+      alt={header.tunnelAlt}
+      width={433}
+      widths={[220, 433]}
+      sizes="17vw"
+      loading="eager"
+      class={plate}
+    />
+    <Image
+      src={terminusImg}
+      alt={header.terminusAlt}
+      width={453}
+      widths={[230, 453]}
+      sizes="18vw"
+      loading="eager"
+      class={plate}
+    />
+  </div>
 </section>

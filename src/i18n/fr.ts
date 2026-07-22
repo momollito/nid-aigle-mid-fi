@@ -49,8 +49,7 @@ const fr = {
       { text: "refuge@nidaigle.com", href: "mailto:refuge@nidaigle.com" },
       { text: "Saint-Gervais-les-Bains" },
     ],
-    seasonHeading: "Saison",
-    seasonLines: ["Ouvert de juin à septembre", "Réservation conseillée"],
+    deptLogoLabel: "Département de la Haute-Savoie",
     copyright: "© 2026 — Bak Studio",
   },
 
@@ -72,6 +71,13 @@ const fr = {
       title: "Un point d'étape. <em>Une destination.</em>", // HTML
       body: "Le Nid d'Aigle est le point de rendez-vous entre deux mondes de la montagne : les randonneurs venus à la journée profiter d'un repas et de la vue sur les glaciers, et les alpinistes qui montent vers le sommet du Mont-Blanc ou en redescendent. À l'aller comme au retour, ce n'est pas qu'un passage — c'est une destination à part entière.",
       link: "Lire l'histoire →",
+    },
+    triptych: {
+      facadeAlt:
+        "Le Refuge du Nid d'Aigle et sa terrasse, adossés au versant au-dessus du terminus du Tramway du Mont-Blanc",
+      commonRoomAlt:
+        "La salle commune du refuge : tables et bancs en bois, fenêtres ouvertes sur la vallée",
+      dormAlt: "Un dortoir du refuge, avec ses lits superposés en bois et sa literie préparée",
     },
     cards: {
       eyebrow: "Préparer votre venue",
@@ -195,6 +201,12 @@ const fr = {
     header: {
       eyebrow: "À propos",
       title: "Cent ans <em>à veiller</em><br>sur les passages.", // HTML
+      tramAlt:
+        "Photo d'archive : deux automotrices du Tramway du Mont-Blanc à l'arrêt sur le flanc rocheux, des voyageurs descendus le long de la voie",
+      tunnelAlt:
+        "Carte postale ancienne : le terminus du Chemin de fer du Mont-Blanc, le tunnel ouvrant sur le glacier et l'Aiguille de Bionnassay",
+      terminusAlt:
+        "Carte postale ancienne : des promeneurs sur le sentier au terminus du Chemin de fer du Mont-Blanc, au pied du glacier et de l'Aiguille de Bionnassay",
     },
     history: {
       eyebrow: "Histoire",
