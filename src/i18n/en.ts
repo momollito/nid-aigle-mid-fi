@@ -43,7 +43,7 @@ const en: Dictionary = {
     contactHeading: "Contact",
     contactLines: [
       { text: "04 50 58 05 78", href: "tel:+33450580578" },
-      { text: "refuge@nidaigle.com", href: "mailto:refuge@nidaigle.com" },
+      { text: "refuge@niddaigle.com", href: "mailto:refuge@niddaigle.com" },
       { text: "Saint-Gervais-les-Bains" },
     ],
     deptLogoLabel: "Haute-Savoie Department",
@@ -118,7 +118,7 @@ const en: Dictionary = {
         "https://www.monrefugepaysdumontblanc.com/uk/il4-refuge_i136101-refuge-du-nid-d-aigle.aspx",
       // HTML — contains a mailto link
       fallback:
-        "If no places are available for online booking, email us at <a href='mailto:refuge@nidaigle.com'>refuge@nidaigle.com</a>.",
+        "If no places are available for online booking, email us at <a href='mailto:refuge@niddaigle.com'>refuge@niddaigle.com</a>.",
     },
     practical: {
       eyebrow: "Good to know",
@@ -192,7 +192,7 @@ const en: Dictionary = {
       eyebrow: "Contact details",
       rows: [
         { label: "Phone", value: "04 50 58 05 78" },
-        { label: "Email", value: "refuge@nidaigle.com" },
+        { label: "Email", value: "refuge@niddaigle.com" },
         { label: "GPS coordinates", value: "45.8560° N · 6.7995° E" },
       ],
       cta: "Book →",

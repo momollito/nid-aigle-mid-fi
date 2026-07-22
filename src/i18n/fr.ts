@@ -46,7 +46,7 @@ const fr = {
     contactHeading: "Contact",
     contactLines: [
       { text: "04 50 58 05 78", href: "tel:+33450580578" },
-      { text: "refuge@nidaigle.com", href: "mailto:refuge@nidaigle.com" },
+      { text: "refuge@niddaigle.com", href: "mailto:refuge@niddaigle.com" },
       { text: "Saint-Gervais-les-Bains" },
     ],
     deptLogoLabel: "Département de la Haute-Savoie",
@@ -121,7 +121,7 @@ const fr = {
         "https://www.monrefugepaysdumontblanc.com/fr/il4-refuge_i136101-refuge-du-nid-d-aigle.aspx",
       // HTML — contient un lien mailto
       fallback:
-        "S'il n'y a plus de places disponibles à la réservation en ligne, écrivez-nous à <a href='mailto:refuge@nidaigle.com'>refuge@nidaigle.com</a>.",
+        "S'il n'y a plus de places disponibles à la réservation en ligne, écrivez-nous à <a href='mailto:refuge@niddaigle.com'>refuge@niddaigle.com</a>.",
     },
     practical: {
       eyebrow: "À savoir",
@@ -190,7 +190,7 @@ const fr = {
       eyebrow: "Coordonnées",
       rows: [
         { label: "Téléphone", value: "04 50 58 05 78" },
-        { label: "Email", value: "refuge@nidaigle.com" },
+        { label: "Email", value: "refuge@niddaigle.com" },
         { label: "Coordonnées GPS", value: "45.8560° N · 6.7995° E" },
       ],
       cta: "Réserver →",
