@@ -56,6 +56,7 @@ const en: Dictionary = {
       eyebrow: "Run by enthusiasts · Since 1933",
       title: "A halt suspended<br><em>at the edge of the glaciers.</em>", // HTML
       cta: "Book a night",
+      alt: "The Refuge du Nid d'Aigle at the edge of the Mont Blanc glaciers",
       stats: [
         { label: "Altitude", value: "2,412 m" },
         { label: "Beds", value: "30" },
@@ -231,6 +232,8 @@ const en: Dictionary = {
       eyebrow: "Location",
       title: "At the end of the tramway, <em>with no road access</em>.", // HTML
       body: "Not accessible by road, the Nid d'Aigle is reached on foot or by the Tramway du Mont-Blanc, of which it marks the final stop. Located in the commune of Saint-Gervais in the Mont Blanc Massif, it is one of the three refuges on the normal route linking the valley to the summit.",
+      imageAlt:
+        "The Tramway du Mont-Blanc in summer, crossing flowering alpine meadows below the Mont Blanc glaciers.",
       stats: [
         { value: "2,412 m", label: "Altitude" },
         { value: "30", label: "Beds" },
