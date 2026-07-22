@@ -1,6 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../../i18n";
-import Placeholder from "../ui/Placeholder.astro";
+import tramwayImg from "../../assets/about/tramway.jpg";
 
 const { geography } = useTranslations(getLangFromUrl(Astro.url)).about;
 ---
@@ -25,8 +26,13 @@ const { geography } = useTranslations(getLangFromUrl(Astro.url)).about;
     </div>
   </div>
 
-  <Placeholder
-    label="Plan altitude · Saint-Gervais → Mont-Blanc"
-    class="aspect-4/3 w-full lg:aspect-auto lg:h-95"
+  <Image
+    src={tramwayImg}
+    alt={geography.imageAlt}
+    widths={[600, 900, 1400]}
+    sizes="(min-width: 1024px) 40vw, 92vw"
+    loading="lazy"
+    decoding="async"
+    class="aspect-4/3 w-full rounded-sm border border-line-strong object-cover lg:aspect-auto lg:h-110"
   />
 </section>

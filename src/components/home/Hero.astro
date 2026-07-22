@@ -1,7 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations, localizedPath } from "../../i18n";
-import Placeholder from "../ui/Placeholder.astro";
 import Button from "../ui/Button.astro";
+import heroImg from "../../assets/home/hero.jpg";
 
 const lang = getLangFromUrl(Astro.url);
 const { hero } = useTranslations(lang).home;
@@ -10,7 +11,16 @@ const { hero } = useTranslations(lang).home;
 <section
   class="relative flex min-h-[85svh] flex-col justify-end overflow-hidden border-b border-line-strong lg:block lg:h-175"
 >
-  <Placeholder label="Photo refuge 'Wow'" dark frame={false} class="absolute inset-0 h-full w-full" />
+  <Image
+    src={heroImg}
+    alt={hero.alt}
+    widths={[768, 1280, 1920, 2560]}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+    class="absolute inset-0 h-full w-full object-cover"
+  />
 
   <!-- Dégradé sombre en pied de héros -->
   <div

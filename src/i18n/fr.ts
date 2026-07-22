@@ -59,6 +59,7 @@ const fr = {
       eyebrow: "Géré par des passionnés · Depuis 1933",
       title: "Une halte suspendue<br><em>au seuil des glaciers.</em>", // HTML
       cta: "Réserver une nuitée",
+      alt: "Le Refuge du Nid d'Aigle au seuil des glaciers du Massif du Mont-Blanc",
       stats: [
         { label: "Altitude", value: "2 412 m" },
         { label: "Couchages", value: "30" },
@@ -230,6 +231,8 @@ const fr = {
       eyebrow: "Situation",
       title: "Au bout du tramway, <em>sans route d'accès</em>.", // HTML
       body: "Non accessible par voie carrossable, le Nid d'Aigle se rejoint à pied ou par le Tramway du Mont-Blanc, dont il marque le dernier arrêt. Situé sur la commune de Saint-Gervais dans le Massif du Mont-Blanc, il s'inscrit parmi les trois refuges de la voie normale reliant la vallée au sommet.",
+      imageAlt:
+        "Le Tramway du Mont-Blanc en été, traversant les alpages fleuris face aux glaciers du Massif du Mont-Blanc.",
       stats: [
         { value: "2 412 m", label: "Altitude" },
         { value: "30", label: "Couchages" },
