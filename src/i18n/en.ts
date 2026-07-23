@@ -75,6 +75,8 @@ const en: Dictionary = {
       commonRoomAlt:
         "The refuge's common room: wooden tables and benches, windows opening onto the valley",
       dormAlt: "One of the refuge's dormitories, with wooden bunk beds and bedding laid out",
+      sunsetAlt:
+        "Sunset over the mountains from the refuge terrace, a person seated at a table facing the horizon",
     },
     cards: {
       eyebrow: "Plan your visit",
@@ -184,7 +186,7 @@ const en: Dictionary = {
           n: "02",
           title: "Hiking — access from Bionnassay",
           tag: "Summer season",
-          desc: "From the hamlet of Bionnassay, a trail climbs through alpine pastures and forest, crosses the Bionnassay torrent, then joins the tramway line, which it follows up to the refuge. A steady climb of about 3 to 4 hours.",
+          desc: "From the hamlet of Bionnassay, a trail climbs through alpine pastures and forest, crosses the Bionnassay torrent, then joins the tramway line, which it follows up to the refuge. A steady climb of about 3 hours.",
         },
       ],
     },
@@ -260,12 +262,12 @@ const en: Dictionary = {
         {
           kicker: "Downhill",
           title: "Saint-Gervais",
-          text: "Starting point of the normal route, the spa town is two hours' walk downhill or thirty minutes by the Tramway du Mont-Blanc.",
+          text: "Starting point of the normal route, the spa town is two hours' walk downhill or about an hour by the Tramway du Mont-Blanc.",
         },
         {
           kicker: "Uphill",
           title: "Refuge du Goûter",
-          text: "The next stage for mountaineers heading for the roof of Europe. The Refuge du Goûter, at 3,835 metres, is reached in three to four hours' walk.",
+          text: "The next stage for mountaineers heading for the roof of Europe. The Refuge du Goûter, at 3,835 metres, is reached in four and a half to five hours' walk.",
         },
         {
           kicker: "Beyond",

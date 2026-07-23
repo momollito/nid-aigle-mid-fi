@@ -78,6 +78,8 @@ const fr = {
       commonRoomAlt:
         "La salle commune du refuge : tables et bancs en bois, fenêtres ouvertes sur la vallée",
       dormAlt: "Un dortoir du refuge, avec ses lits superposés en bois et sa literie préparée",
+      sunsetAlt:
+        "Coucher de soleil sur les montagnes depuis la terrasse du refuge, une personne attablée face à l'horizon",
     },
     cards: {
       eyebrow: "Préparer votre venue",
@@ -182,7 +184,7 @@ const fr = {
           n: "02",
           title: "Randonnée — accès depuis Bionnassay",
           tag: "Saison été",
-          desc: "Depuis le hameau de Bionnassay, un sentier grimpe à travers alpages et forêt, franchit le torrent de Bionnassay puis rejoint la voie du tramway qu'il longe jusqu'au refuge. Une montée soutenue d'environ 3 à 4 heures.",
+          desc: "Depuis le hameau de Bionnassay, un sentier grimpe à travers alpages et forêt, franchit le torrent de Bionnassay puis rejoint la voie du tramway qu'il longe jusqu'au refuge. Une montée soutenue d'environ 3 heures.",
         },
       ],
     },
@@ -259,12 +261,12 @@ const fr = {
         {
           kicker: "Vers le bas",
           title: "Saint-Gervais",
-          text: "Point de départ de la voie normale, la ville thermale est à deux heures de descente à pied ou trente minutes par le Tramway du Mont-Blanc.",
+          text: "Point de départ de la voie normale, la ville thermale est à deux heures de descente à pied ou environ une heure par le Tramway du Mont-Blanc.",
         },
         {
           kicker: "Vers le haut",
           title: "Refuge du Goûter",
-          text: "Prochaine étape pour les alpinistes en route vers le toit de l'Europe. Le refuge du Goûter, à 3 835 mètres, est accessible en trois à quatre heures de marche.",
+          text: "Prochaine étape pour les alpinistes en route vers le toit de l'Europe. Le refuge du Goûter, à 3 835 mètres, est accessible en quatre heures trente à cinq heures de marche.",
         },
         {
           kicker: "Au-delà",

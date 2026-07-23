@@ -1,10 +1,10 @@
 ---
 import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../../i18n";
-import Placeholder from "../ui/Placeholder.astro";
 import facadeImg from "../../assets/home/facade.jpg";
 import salleCommuneImg from "../../assets/home/salle-commune.jpg";
 import dortoirImg from "../../assets/home/dortoir.jpg";
+import sunsetImg from "../../assets/home/sunset.jpg";
 
 const { triptych } = useTranslations(getLangFromUrl(Astro.url)).home;
 
@@ -47,6 +47,13 @@ const tile =
       />
     </div>
 
-    <Placeholder label="Glacier au crépuscule" dark class="aspect-16/10 lg:aspect-auto lg:h-full" />
+    <Image
+      src={sunsetImg}
+      alt={triptych.sunsetAlt}
+      width={1000}
+      widths={[400, 700, 1000]}
+      sizes="(min-width: 1024px) 24vw, (min-width: 768px) 84vw, 90vw"
+      class={tile}
+    />
   </div>
 </section>
